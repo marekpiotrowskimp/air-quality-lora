@@ -1,118 +1,118 @@
-# Air Quality Receiver - Obudowa 3D
+# Air Quality Receiver - 3D enclosure
 
-## Wersja 2.3
+## Version 2.3
 
-Wymiary oparte na **rzeczywistych pomiarach** PCB suwmiarką.
+Dimensions are based on **actual caliper measurements** of the PCB.
 
-## Pliki
+## Files
 
-| Plik | Opis |
-|------|------|
-| `air_quality_case.scad` | Źródło parametryczne OpenSCAD |
-| `case_body.stl` | Korpus obudowy (STL do druku) |
-| `case_body.gcode` | Korpus - G-code dla Ender-3 Pro |
-| `case_frame.stl` | Ramka przednia (STL do druku) |
-| `case_frame.gcode` | Ramka - G-code dla Ender-3 Pro |
-| `ender3_config.ini` | Profil drukarki |
-| `setup_blender.py` | Skrypt ustawiający Blender na mm |
+| File | Description |
+|------|-------------|
+| `air_quality_case.scad` | Parametric OpenSCAD source |
+| `case_body.stl` | Enclosure body (STL for printing) |
+| `case_body.gcode` | Body - G-code for the Ender-3 Pro |
+| `case_frame.stl` | Front frame (STL for printing) |
+| `case_frame.gcode` | Frame - G-code for the Ender-3 Pro |
+| `ender3_config.ini` | Printer profile |
+| `setup_blender.py` | Script that sets Blender units to mm |
 
-## Wymiary
+## Dimensions
 
-### Zewnętrzne
+### External
 - **79 × 60 × 39 mm**
-- Grubość ścianki: 2.5 mm
+- Wall thickness: 2.5 mm
 
-### Wewnętrzne
-- Szerokość: 74 mm (PCB 71.2mm = luz 1.4mm/stronę)
-- Wysokość: 55 mm (PCB 52.5mm = luz 1.25mm/stronę)
-- Głębokość: 36.5 mm (stos 32mm = luz 4.5mm)
+### Internal
+- Width: 74 mm (PCB 71.2 mm = 1.4 mm clearance per side)
+- Height: 55 mm (PCB 52.5 mm = 1.25 mm clearance per side)
+- Depth: 36.5 mm (stack 32 mm = 4.5 mm clearance)
 
 ### LCD
-- **Otwór widoczny: 67 × 48 mm**
-- Aktywny obszar: 62 × 48 mm
-- Margines: 2.5mm/stronę (szerokość)
-- Półka na PCB: 73 × 55 mm
+- **Visible opening: 67 × 48 mm**
+- Active area: 62 × 48 mm
+- Margin: 2.5 mm per side (width)
+- PCB ledge: 73 × 55 mm
 
 ### USB-C
-- Otwór: 14 × 9 mm (**lewa strona** patrząc na LCD)
-- Pozycja: 8mm od góry, 6mm od tyłu
+- Opening: 14 × 9 mm (**left side** when looking at the LCD)
+- Position: 8 mm from the top, 6 mm from the back
 
-## Parametry druku (Ender-3 Pro + Devil Design PLA)
+## Print settings (Ender-3 Pro + Devil Design PLA)
 
-| Parametr | Wartość |
-|----------|---------|
-| **Wysokość warstwy** | 0.2 mm |
-| **Ścianka (perimetry)** | 3 |
-| **Wypełnienie** | 20% gyroid |
-| **Temperatura dyszy** | 205°C (210°C pierwsza warstwa) |
-| **Temperatura stołu** | 60°C |
-| **Prędkość druku** | 50 mm/s |
-| **Tolerancja** | 0.3 mm |
+| Parameter | Value |
+|-----------|-------|
+| **Layer height** | 0.2 mm |
+| **Walls (perimeters)** | 3 |
+| **Infill** | 20% gyroid |
+| **Nozzle temperature** | 205°C (210°C first layer) |
+| **Bed temperature** | 60°C |
+| **Print speed** | 50 mm/s |
+| **Tolerance** | 0.3 mm |
 
-## Czas druku i zużycie filamentu
+## Print time and filament usage
 
-### Korpus (case_body.gcode)
-- **Warstwy:** 130
-- **Filament:** 13.9m (~33.5 cm³)
-- **Czas:** ~3-4h
-- **Brim:** TAK (5mm)
-- **Supports:** NIE (orientacja poprawiona - tylna ściana na stole)
+### Body (case_body.gcode)
+- **Layers:** 130
+- **Filament:** 13.9 m (~33.5 cm³)
+- **Time:** ~3-4 h
+- **Brim:** YES (5 mm)
+- **Supports:** NO (orientation corrected - back wall on the bed)
 
-### Ramka (case_frame.gcode)
-- **Warstwy:** 23
-- **Filament:** 1.7m (~4.1 cm³)
-- **Czas:** ~20-30 min
-- **Brim:** NIE
-- **Supports:** NIE
+### Frame (case_frame.gcode)
+- **Layers:** 23
+- **Filament:** 1.7 m (~4.1 cm³)
+- **Time:** ~20-30 min
+- **Brim:** NO
+- **Supports:** NO
 
-### Łącznie: ~3.5-4.5h, ~15.5m filamentu (~37 cm³)
+### Total: ~3.5-4.5 h, ~15.5 m of filament (~37 cm³)
 
-## Orientacja druku
+## Print orientation
 
-### Korpus
-- **Orientacja:** Tylna ściana solidna na stole (Z=0), otwór LCD na górze
-- Drukuje się bez supportów
-- Ściany rosną pionowo od solidnej podstawy
+### Body
+- **Orientation:** solid back wall on the bed (Z=0), LCD opening on top
+- Prints without supports
+- Walls grow vertically from the solid base
 
-### Ramka  
-- Orientacja: płasko na stole, stroną LCD do góry
-- Drukuje się bez supportów
+### Frame
+- Orientation: flat on the bed, LCD side up
+- Prints without supports
 
-## Montaż
+## Assembly
 
-1. Włóż elektronikę (LCD + adapter + XIAO + SX1262) do korpusu
-2. Nałóż ramkę od przodu
-3. Zatrzaski snap-fit zablokują ramkę
-4. Opcjonalnie: naklej gumowe nóżki na spód
+1. Insert the electronics (LCD + adapter + XIAO + SX1262) into the body
+2. Fit the frame from the front
+3. The snap-fit latches lock the frame
+4. Optional: stick rubber feet on the bottom
 
-## Weryfikacja w Blender
+## Checking in Blender
 
-1. Otwórz Blender 3.3.1
+1. Open Blender 3.3.1
 2. File → Import → STL (.stl)
-3. Zakładka Scripting → Open → `setup_blender.py` → Run Script
-4. Teraz wymiary są w mm (panel Item → `N`)
+3. Scripting tab → Open → `setup_blender.py` → Run Script
+4. Dimensions are now in mm (Item panel → `N`)
 
-## Modyfikacja parametrów (OpenSCAD)
+## Changing parameters (OpenSCAD)
 
-Aby zmienić wymiary, edytuj `air_quality_case.scad`:
+To change the dimensions, edit `air_quality_case.scad`:
 
 ```openscad
-// Wymiary zewnętrzne
-width = 79;      // szerokość
-height = 60;     // wysokość  
-depth = 39;      // głębokość
-wall = 2.5;      // grubość ścianki
+// External dimensions
+width = 79;      // width
+height = 60;     // height
+depth = 39;      // depth
+wall = 2.5;      // wall thickness
 
-// LCD otwór widoczny
-lcd_visible_w = 67;    // szerokość otworu
-lcd_visible_h = 48;    // wysokość otworu
+// Visible LCD opening
+lcd_visible_w = 67;    // opening width
+lcd_visible_h = 48;    // opening height
 
-// USB-C pozycja
-usb_from_top = 8;   // od góry
-usb_from_back = 6;  // od tyłu
+// USB-C position
+usb_from_top = 8;   // from the top
+usb_from_back = 6;  // from the back
 ```
 
-Eksport STL:
+STL export:
 ```bash
 openscad -o case_body.stl -D 'part="body"' air_quality_case.scad
 openscad -o case_frame.stl -D 'part="frame"' air_quality_case.scad
@@ -120,20 +120,20 @@ openscad -o case_frame.stl -D 'part="frame"' air_quality_case.scad
 
 ## Troubleshooting
 
-### LCD nie pasuje
-- Zwiększ `lcd_shelf_w` i `lcd_shelf_h` o 0.5-1mm
+### The LCD doesn't fit
+- Increase `lcd_shelf_w` and `lcd_shelf_h` by 0.5-1 mm
 
-### Zatrzaski za ciasne/luźne
-- Zmień `snap_tol` (domyślnie 0.3mm)
+### Latches too tight/loose
+- Change `snap_tol` (default 0.3 mm)
 
-### USB-C w złym miejscu
-- Zmierz rzeczywistą pozycję portu
-- Zmień `usb_from_top` i `usb_from_back`
+### USB-C in the wrong place
+- Measure the actual port position
+- Change `usb_from_top` and `usb_from_back`
 
-## Historia wersji
+## Version history
 
-- **v2.3** - USB-C na lewej ściance, poprawiona orientacja druku (tylna ściana na stole)
-- **v2.2** - Wymiary z rzeczywistych pomiarów PCB (71.2×52.5mm), otwór LCD 67×48mm
-- **v2.1** - Większy otwór LCD dla wygodnego dotyku palcem
-- **v2.0** - Zwiększone wymiary dla bezpiecznego luzu montażowego
-- **v1.0** - Początkowa wersja
+- **v2.3** - USB-C on the left wall, corrected print orientation (back wall on the bed)
+- **v2.2** - Dimensions from actual PCB measurements (71.2×52.5 mm), LCD opening 67×48 mm
+- **v2.1** - Larger LCD opening for comfortable finger touch
+- **v2.0** - Larger dimensions for safe assembly clearance
+- **v1.0** - Initial version

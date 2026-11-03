@@ -1,181 +1,181 @@
-# Air Condition (Nadajnik) - Obudowa 3D
+# Air Condition (transmitter) - 3D enclosure
 
-## Wersja 1.2
+## Version 1.2
 
-Wymiary oparte na pomiarach elektroniki.
+Dimensions are based on measurements of the electronics.
 
-## Pliki
+## Files
 
-| Plik | Opis |
-|------|------|
-| `air_condition_case.scad` | Źródło parametryczne OpenSCAD |
-| `case_body.stl` | Korpus obudowy (STL do druku) |
-| `case_body.gcode` | Korpus - G-code dla Ender-3 Pro |
-| `case_cover.stl` | Tylna pokrywa (STL do druku) |
-| `case_cover.gcode` | Pokrywa - G-code dla Ender-3 Pro |
-| `ender3_config.ini` | Profil drukarki |
+| File | Description |
+|------|-------------|
+| `air_condition_case.scad` | Parametric OpenSCAD source |
+| `case_body.stl` | Enclosure body (STL for printing) |
+| `case_body.gcode` | Body - G-code for the Ender-3 Pro |
+| `case_cover.stl` | Back cover (STL for printing) |
+| `case_cover.gcode` | Cover - G-code for the Ender-3 Pro |
+| `ender3_config.ini` | Printer profile |
 
-## Wymiary
+## Dimensions
 
-### Zewnętrzne
-- **61 × 86 × 55 mm** (szerokość × wysokość × głębokość)
-- Grubość ścianki: 2 mm
+### External
+- **61 × 86 × 55 mm** (width × height × depth)
+- Wall thickness: 2 mm
 
-### Wewnętrzne
-- Szerokość: 57 mm
-- Wysokość: 82 mm
-- Głębokość: 49 mm (w tym 1mm wgłębienie na plexi)
+### Internal
+- Width: 57 mm
+- Height: 82 mm
+- Depth: 49 mm (including a 1 mm recess for the acrylic window)
 
-### Okno OLED (patrząc z zewnątrz na przód)
-- **Otwór widoczny: 55 × 30 mm**
-- Pozycja: 1mm od każdej krawędzi bocznej, 4mm od góry
-- Wgłębienie na plexi: 57 × 32 × 1 mm
+### OLED window (looking at the front from outside)
+- **Visible opening: 55 × 30 mm**
+- Position: 1 mm from each side edge, 4 mm from the top
+- Acrylic recess: 57 × 32 × 1 mm
 
-### USB (prawa ściana - patrząc z zewnątrz na przód)
-- Otwór: 10 × 18 mm (pionowy)
-- Pozycja: 40mm od góry, 4mm od frontu
+### USB (right wall - looking at the front from outside)
+- Opening: 10 × 18 mm (vertical)
+- Position: 40 mm from the top, 4 mm from the front
 
-### Mikrostyk (prawa ściana - patrząc z zewnątrz na przód)
-- **Tact Switch 6x6mm / 5mm THT - 2pin** (Botland)
-- Wpust: 7 × 7 × 1 mm (na korpus switcha)
-- 2× otwór Ø1.5mm (na piny THT, raster 5mm)
-- Pozycja: 10mm od dołu, 10mm od frontu
-- Montaż: lutowany od wewnątrz obudowy
+### Push button (right wall - looking at the front from outside)
+- **Tact switch 6x6 mm / 5 mm THT - 2-pin** (Botland)
+- Pocket: 7 × 7 × 1 mm (for the switch body)
+- 2× Ø1.5 mm holes (for the THT pins, 5 mm pitch)
+- Position: 10 mm from the bottom, 10 mm from the front
+- Mounting: soldered from inside the enclosure
 
-### Wentylacja (lewa ściana - patrząc z zewnątrz na przód)
-- Otwory kwadratowe 1.5 × 1.5 mm w układzie honeycomb offset
-- Rozstaw: 3.5 mm
-- Ściany: lewa (cała - dla czujnika PMS7003), górna, dolna
+### Ventilation (left wall - looking at the front from outside)
+- 1.5 × 1.5 mm square holes in an offset honeycomb pattern
+- Spacing: 3.5 mm
+- Walls: left (entire wall - for the PMS7003 sensor), top, bottom
 
-## Parametry druku (Ender-3 Pro + Devil Design PLA)
+## Print settings (Ender-3 Pro + Devil Design PLA)
 
-| Parametr | Wartość |
-|----------|---------|
-| **Wysokość warstwy** | 0.2 mm |
-| **Ścianka (perimetry)** | 3 |
-| **Wypełnienie** | 20% gyroid |
-| **Temperatura dyszy** | 210°C (215°C pierwsza warstwa) |
-| **Temperatura stołu** | 55°C (60°C pierwsza warstwa) |
-| **Prędkość druku** | 45 mm/s |
-| **Tolerancja** | 0.3 mm |
+| Parameter | Value |
+|-----------|-------|
+| **Layer height** | 0.2 mm |
+| **Walls (perimeters)** | 3 |
+| **Infill** | 20% gyroid |
+| **Nozzle temperature** | 210°C (215°C first layer) |
+| **Bed temperature** | 55°C (60°C first layer) |
+| **Print speed** | 45 mm/s |
+| **Tolerance** | 0.3 mm |
 
-## Orientacja druku
+## Print orientation
 
-### Korpus (case_body)
-- **Orientacja:** Ściana z oknem plexi na stole (Z=0)
-- Ściany boczne rosną pionowo do góry
-- **Brim:** TAK (5mm)
-- **Supports:** NIE
+### Body (case_body)
+- **Orientation:** the wall with the acrylic window on the bed (Z=0)
+- Side walls grow vertically upwards
+- **Brim:** YES (5 mm)
+- **Supports:** NO
 
-### Pokrywa (case_cover)
-- **Orientacja:** Płyta na stole, ramka rośnie do góry
-- **Brim:** TAK (5mm)
-- **Supports:** NIE
+### Cover (case_cover)
+- **Orientation:** plate on the bed, frame grows upwards
+- **Brim:** YES (5 mm)
+- **Supports:** NO
 
-## Szacowany czas druku
+## Estimated print time
 
-| Element | Warstwy | Filament | Czas |
-|---------|---------|----------|------|
-| Korpus | 265 | ~13m (~31 cm³) | ~5h |
-| Pokrywa | 20 | ~4m (~10 cm³) | ~1h |
-| **Łącznie** | - | **~17m (~41 cm³)** | **~6h** |
+| Part | Layers | Filament | Time |
+|------|--------|----------|------|
+| Body | 265 | ~13 m (~31 cm³) | ~5 h |
+| Cover | 20 | ~4 m (~10 cm³) | ~1 h |
+| **Total** | - | **~17 m (~41 cm³)** | **~6 h** |
 
-## Montaż
+## Assembly
 
-1. Wydrukuj korpus i pokrywę
-2. Wklej plexi 57×32×1mm w wgłębienie (od wewnątrz)
-3. Zamontuj elektronikę w korpusie
-4. Włóż pokrywę (ramka wchodzi w korpus)
-5. Przyklej pokrywę klejem na gorąco
+1. Print the body and the cover
+2. Glue the 57×32×1 mm acrylic into the recess (from the inside)
+3. Mount the electronics in the body
+4. Insert the cover (the frame slides into the body)
+5. Fix the cover with hot glue
 
-## Eksport STL (OpenSCAD)
+## STL export (OpenSCAD)
 
 ```bash
-# Korpus
+# Body
 openscad -D 'part="body"' -o case_body.stl air_condition_case.scad
 
-# Pokrywa
+# Cover
 openscad -D 'part="cover"' -o case_cover.stl air_condition_case.scad
 
-# Weryfikacja wymiarów (podgląd)
+# Dimension check (preview)
 openscad -D 'part="check"' air_condition_case.scad
 ```
 
-## Generowanie G-code (PrusaSlicer)
+## G-code generation (PrusaSlicer)
 
 ```bash
-# Korpus
+# Body
 /Applications/PrusaSlicer.app/Contents/MacOS/PrusaSlicer \
   --load ender3_config.ini --export-gcode \
   --output case_body.gcode case_body.stl
 
-# Pokrywa
+# Cover
 /Applications/PrusaSlicer.app/Contents/MacOS/PrusaSlicer \
   --load ender3_config.ini --export-gcode \
   --output case_cover.gcode case_cover.stl
 ```
 
-## Weryfikacja wymiarów
+## Dimension check
 
-Aby sprawdzić czy przestrzeń wewnętrzna ma wymagane 57×82×49mm:
+To check that the internal space has the required 57×82×49 mm:
 
 ```bash
 openscad -D 'part="check"' air_condition_case.scad
 ```
 
-Czerwony prostopadłościan pokazuje rzeczywistą przestrzeń wewnętrzną.
+The red box shows the actual internal space.
 
-## Konstrukcja pióro-wpust
+## Tongue-and-groove joint
 
-System łączenia korpusu z pokrywą:
+How the body joins the cover:
 
 ```
-KORPUS (przekrój krawędzi tylnej):
+BODY (cross-section of the back edge):
 
     ←── 2mm ──→
     ┌─────────┐
-    │  pełna  │
-    │ ściana  │
+    │  solid  │
+    │  wall   │
     ├────┬────┤  ─┐
     │ 1mm│    │   │ 2mm (cover_lip)
     └────┴────┘  ─┘
 
-POKRYWA:
+COVER:
 
     ┌─────────────┐  ─┐
-    │    płyta    │   │ 2mm
+    │    plate    │   │ 2mm
     ├──┬───────┬──┤  ─┘
     │  │       │  │  ─┐
-    │  │ puste │  │   │ 2mm (ramka)
+    │  │ empty │  │   │ 2mm (frame)
     └──┴───────┴──┘  ─┘
     ↑1mm       1mm↑
 ```
 
-Tolerancja ramki: 0.3mm (łatwe dopasowanie przy klejeniu)
+Frame tolerance: 0.3 mm (easy fit when gluing)
 
-## BOM - Elementy dodatkowe
+## BOM - additional parts
 
-| Element | Wymiary | Ilość |
-|---------|---------|-------|
-| Plexi przezroczyste | 57 × 32 × 1 mm | 1 szt |
-| Tact Switch 6x6mm/5mm THT | 2-pin | 1 szt |
-| Klej na gorąco | - | do klejenia |
+| Part | Dimensions | Qty |
+|------|------------|-----|
+| Clear acrylic | 57 × 32 × 1 mm | 1 |
+| Tact switch 6x6 mm/5 mm THT | 2-pin | 1 |
+| Hot glue | - | for gluing |
 
-## Historia wersji
+## Version history
 
-- **v1.2** - Mikrostyk THT (2026-01-06)
-  - Zmiana otworu mikrostyka z 4×4mm na 2× otwory Ø1.5mm (raster 5mm THT)
-  - Switch lutowany od wewnątrz obudowy
+- **v1.2** - THT push button (2026-01-06)
+  - Push-button opening changed from 4×4 mm to 2× Ø1.5 mm holes (5 mm THT pitch)
+  - Switch soldered from inside the enclosure
 
-- **v1.1** - Poprawki (2026-01-06)
-  - Okno OLED zmienione na 55×30mm (1mm od każdej krawędzi bocznej)
-  - Plexi 57×32×1mm
-  - Poprawiona orientacja: USB/mikrostyk na prawej, wentylacja na lewej (patrząc z zewnątrz)
-  - Dodane pliki G-code
+- **v1.1** - Fixes (2026-01-06)
+  - OLED window changed to 55×30 mm (1 mm from each side edge)
+  - Acrylic 57×32×1 mm
+  - Corrected orientation: USB/push button on the right, ventilation on the left (looking from outside)
+  - G-code files added
 
-- **v1.0** - Początkowa wersja (2026-01-06)
-  - Wymiary wewnętrzne 57×82×49mm
-  - Okno OLED z wgłębieniem na plexi
-  - USB i mikrostyk na prawej ścianie
-  - Wentylacja honeycomb na lewej, górnej i dolnej ścianie
-  - System pióro-wpust do klejenia
+- **v1.0** - Initial version (2026-01-06)
+  - Internal dimensions 57×82×49 mm
+  - OLED window with an acrylic recess
+  - USB and push button on the right wall
+  - Honeycomb ventilation on the left, top and bottom walls
+  - Tongue-and-groove joint for gluing
