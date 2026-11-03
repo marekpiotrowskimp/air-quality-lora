@@ -1,0 +1,2947 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>PROJECT</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a
+href="#projekt-air-condition---system-monitorowania-jakości-powietrza"
+id="toc-projekt-air-condition---system-monitorowania-jakości-powietrza">Projekt:
+Air Condition - System Monitorowania Jakości Powietrza</a>
+<ul>
+<li><a href="#opis-ogólny" id="toc-opis-ogólny">Opis Ogólny</a></li>
+<li><a href="#lista-komponentów-bom"
+id="toc-lista-komponentów-bom">Lista Komponentów (BOM)</a>
+<ul>
+<li><a href="#linki-do-zakupu-botland"
+id="toc-linki-do-zakupu-botland">Linki do Zakupu (Botland)</a></li>
+<li><a href="#ilości-elementów-do-zakupu"
+id="toc-ilości-elementów-do-zakupu">Ilości Elementów do Zakupu</a></li>
+</ul></li>
+<li><a href="#analiza-kompatybilności"
+id="toc-analiza-kompatybilności">Analiza Kompatybilności</a>
+<ul>
+<li><a href="#zgodność-napięć" id="toc-zgodność-napięć">Zgodność
+Napięć</a></li>
+<li><a href="#wynik-analizy" id="toc-wynik-analizy">Wynik
+Analizy</a></li>
+<li><a href="#ważne-problem-zasilania-5v-przy-pracy-bateryjnej"
+id="toc-ważne-problem-zasilania-5v-przy-pracy-bateryjnej">WAŻNE: Problem
+Zasilania 5V przy Pracy Bateryjnej</a></li>
+<li><a href="#rozwiązanie-przetwornica-pololu-s7v7f5"
+id="toc-rozwiązanie-przetwornica-pololu-s7v7f5">Rozwiązanie:
+Przetwornica Pololu S7V7F5</a></li>
+</ul></li>
+<li><a href="#schemat-połączeń" id="toc-schemat-połączeń">Schemat
+Połączeń</a>
+<ul>
+<li><a href="#pinout-xiao-esp32-s3-sense"
+id="toc-pinout-xiao-esp32-s3-sense">Pinout XIAO ESP32-S3 Sense</a></li>
+<li><a href="#tabela-połączeń" id="toc-tabela-połączeń">Tabela
+Połączeń</a></li>
+<li><a
+href="#schemat-połączeń-na-płytce-uniwersalnej-low-side-switching"
+id="toc-schemat-połączeń-na-płytce-uniwersalnej-low-side-switching">Schemat
+Połączeń na Płytce Uniwersalnej (Low-Side Switching)</a></li>
+<li><a
+href="#schemat-zasilania-z-mosfetami-n-channel-low-side-switching"
+id="toc-schemat-zasilania-z-mosfetami-n-channel-low-side-switching">Schemat
+Zasilania z MOSFETami N-channel (LOW-SIDE SWITCHING)</a></li>
+<li><a href="#schemat-blokowy-zasilania"
+id="toc-schemat-blokowy-zasilania">Schemat Blokowy Zasilania</a></li>
+<li><a href="#szczegółowy-schemat-q1-linia-5v"
+id="toc-szczegółowy-schemat-q1-linia-5v">Szczegółowy Schemat Q1 (Linia
+5V)</a></li>
+<li><a href="#szczegółowy-schemat-q2-linia-3.3v---i2c"
+id="toc-szczegółowy-schemat-q2-linia-3.3v---i2c">Szczegółowy Schemat Q2
+(Linia 3.3V - I2C)</a></li>
+<li><a href="#logika-sterowania" id="toc-logika-sterowania">Logika
+Sterowania</a></li>
+<li><a href="#podsumowanie-połączeń-zasilania"
+id="toc-podsumowanie-połączeń-zasilania">Podsumowanie Połączeń
+Zasilania</a></li>
+<li><a href="#schemat-pojedynczego-switcha-n-mosfet-low-side"
+id="toc-schemat-pojedynczego-switcha-n-mosfet-low-side">Schemat
+Pojedynczego Switcha N-MOSFET (Low-Side)</a></li>
+<li><a href="#schemat-sterowania-buzzerem-bezpośrednio-do-gpio"
+id="toc-schemat-sterowania-buzzerem-bezpośrednio-do-gpio">Schemat
+Sterowania Buzzerem (bezpośrednio do GPIO)</a></li>
+</ul></li>
+<li><a href="#zarządzanie-energią-power-management"
+id="toc-zarządzanie-energią-power-management">Zarządzanie Energią (Power
+Management)</a>
+<ul>
+<li><a href="#strategia-oszczędzania-energii"
+id="toc-strategia-oszczędzania-energii">Strategia Oszczędzania
+Energii</a></li>
+<li><a href="#tryby-pracy-systemu" id="toc-tryby-pracy-systemu">Tryby
+Pracy Systemu</a></li>
+<li><a href="#adaptacyjny-pomiar-pms-v1.4"
+id="toc-adaptacyjny-pomiar-pms-v1.4">Adaptacyjny Pomiar PMS
+(v1.4)</a></li>
+<li><a href="#typy-wybudzeń" id="toc-typy-wybudzeń">Typy
+Wybudzeń</a></li>
+<li><a href="#zmienne-rtc-przeżywają-deep-sleep"
+id="toc-zmienne-rtc-przeżywają-deep-sleep">Zmienne RTC (przeżywają deep
+sleep)</a></li>
+<li><a href="#algorytm-adaptacyjny-v1.4---schemat"
+id="toc-algorytm-adaptacyjny-v1.4---schemat">Algorytm Adaptacyjny v1.4 -
+Schemat</a></li>
+<li><a href="#quick-measurement-bez-pms"
+id="toc-quick-measurement-bez-pms">Quick Measurement (bez PMS)</a></li>
+<li><a href="#full-measurement-z-pms"
+id="toc-full-measurement-z-pms">Full Measurement (z PMS)</a></li>
+<li><a href="#kod-adaptacyjnego-zarządzania-energią-v1.4"
+id="toc-kod-adaptacyjnego-zarządzania-energią-v1.4">Kod Adaptacyjnego
+Zarządzania Energią (v1.4)</a></li>
+<li><a
+href="#pobór-prądu---szczegółowa-analiza-v1.4-z-optymalizacją-cpu"
+id="toc-pobór-prądu---szczegółowa-analiza-v1.4-z-optymalizacją-cpu">Pobór
+Prądu - Szczegółowa Analiza (v1.4 z optymalizacją CPU)</a></li>
+<li><a
+href="#zużycie-energii---quick-vs-full-measurement-v1.4-cpu-80mhz"
+id="toc-zużycie-energii---quick-vs-full-measurement-v1.4-cpu-80mhz">Zużycie
+Energii - Quick vs Full Measurement (v1.4 + CPU 80MHz)</a></li>
+<li><a href="#szacowany-czas-pracy-baterii-4000mah-v1.4-optymalizacje"
+id="toc-szacowany-czas-pracy-baterii-4000mah-v1.4-optymalizacje">Szacowany
+Czas Pracy Baterii 4000mAh (v1.4 + optymalizacje)</a></li>
+<li><a href="#podsumowanie-czasu-pracy-baterii-v1.4-optymalizacje"
+id="toc-podsumowanie-czasu-pracy-baterii-v1.4-optymalizacje">Podsumowanie
+Czasu Pracy Baterii (v1.4 + optymalizacje)</a></li>
+</ul></li>
+<li><a href="#adresy-i2c" id="toc-adresy-i2c">Adresy I2C</a></li>
+<li><a href="#połączenia-pms7003-adapter-idc-microusb-z-ch340g"
+id="toc-połączenia-pms7003-adapter-idc-microusb-z-ch340g">Połączenia
+PMS7003 (Adapter IDC-microUSB z CH340G)</a>
+<ul>
+<li><a href="#opis-adaptera" id="toc-opis-adaptera">Opis
+Adaptera</a></li>
+<li><a href="#pinout-adaptera-pms7003-goldpiny"
+id="toc-pinout-adaptera-pms7003-goldpiny">Pinout Adaptera PMS7003
+(goldpiny)</a></li>
+<li><a href="#połączenia-adaptera-z-xiao-przez-goldpiny"
+id="toc-połączenia-adaptera-z-xiao-przez-goldpiny">Połączenia Adaptera z
+XIAO (przez goldpiny)</a></li>
+<li><a href="#ważne-nie-używać-microusb-do-zasilania"
+id="toc-ważne-nie-używać-microusb-do-zasilania">WAŻNE: Nie używać
+microUSB do zasilania!</a></li>
+<li><a href="#stary-pinout-idc-dla-referencji"
+id="toc-stary-pinout-idc-dla-referencji">Stary pinout IDC (dla
+referencji)</a></li>
+<li><a href="#połączenia-przetwornicy-pololu-s7v7f5"
+id="toc-połączenia-przetwornicy-pololu-s7v7f5">Połączenia Przetwornicy
+Pololu S7V7F5</a></li>
+</ul></li>
+<li><a href="#lista-połączeń-instrukcja-montażu"
+id="toc-lista-połączeń-instrukcja-montażu">Lista Połączeń (Instrukcja
+Montażu)</a>
+<ul>
+<li><a href="#zasilanie-główne" id="toc-zasilanie-główne">1. ZASILANIE
+GŁÓWNE</a></li>
+<li><a href="#mosfet-q1-irlz44n---sterowanie-linii-5v-pololu-pms7003"
+id="toc-mosfet-q1-irlz44n---sterowanie-linii-5v-pololu-pms7003">2.
+MOSFET Q1 (IRLZ44N) - sterowanie linii 5V (Pololu + PMS7003)</a></li>
+<li><a href="#mosfet-q2-irlz44n---sterowanie-czujników-i2c"
+id="toc-mosfet-q2-irlz44n---sterowanie-czujników-i2c">3. MOSFET Q2
+(IRLZ44N) - sterowanie czujników I2C</a></li>
+<li><a href="#przetwornica-pololu-s7v7f5"
+id="toc-przetwornica-pololu-s7v7f5">4. PRZETWORNICA POLOLU
+S7V7F5</a></li>
+<li><a href="#pms7003-czujnik-pyłu---przez-adapter-idc-microusb"
+id="toc-pms7003-czujnik-pyłu---przez-adapter-idc-microusb">5. PMS7003
+(czujnik pyłu) - przez adapter IDC-microUSB</a></li>
+<li><a href="#magistrala-i2c-wspólna-dla-3-urządzeń"
+id="toc-magistrala-i2c-wspólna-dla-3-urządzeń">6. MAGISTRALA I2C
+(wspólna dla 3 urządzeń)</a></li>
+<li><a href="#buzzer" id="toc-buzzer">7. BUZZER</a></li>
+<li><a href="#przycisk-wybudzenia" id="toc-przycisk-wybudzenia">8.
+PRZYCISK WYBUDZENIA</a></li>
+<li><a href="#podsumowanie-pinów-xiao"
+id="toc-podsumowanie-pinów-xiao">9. PODSUMOWANIE PINÓW XIAO</a></li>
+<li><a href="#diagram-połączeń---widok-całościowy"
+id="toc-diagram-połączeń---widok-całościowy">10. DIAGRAM POŁĄCZEŃ -
+WIDOK CAŁOŚCIOWY</a></li>
+<li><a href="#checklist-przed-włączeniem"
+id="toc-checklist-przed-włączeniem">11. CHECKLIST PRZED
+WŁĄCZENIEM</a></li>
+</ul></li>
+<li><a href="#wymagane-biblioteki-arduino"
+id="toc-wymagane-biblioteki-arduino">Wymagane Biblioteki
+Arduino</a></li>
+<li><a href="#fazy-projektu" id="toc-fazy-projektu">Fazy Projektu</a>
+<ul>
+<li><a href="#faza-1-koncepcja-i-planowanie-aktualna"
+id="toc-faza-1-koncepcja-i-planowanie-aktualna">Faza 1: Koncepcja i
+Planowanie (AKTUALNA) ✓</a></li>
+<li><a href="#faza-2-montaż-sprzętu" id="toc-faza-2-montaż-sprzętu">Faza
+2: Montaż Sprzętu</a></li>
+<li><a href="#faza-3-implementacja-oprogramowania"
+id="toc-faza-3-implementacja-oprogramowania">Faza 3: Implementacja
+Oprogramowania</a></li>
+<li><a href="#faza-4-integracja-i-testy"
+id="toc-faza-4-integracja-i-testy">Faza 4: Integracja i Testy</a></li>
+</ul></li>
+<li><a href="#specyfikacja-techniczna"
+id="toc-specyfikacja-techniczna">Specyfikacja Techniczna</a>
+<ul>
+<li><a href="#parametry-lora-aktualna-konfiguracja"
+id="toc-parametry-lora-aktualna-konfiguracja">Parametry LoRa (aktualna
+konfiguracja)</a></li>
+<li><a href="#zakresy-pomiarowe-czujników"
+id="toc-zakresy-pomiarowe-czujników">Zakresy Pomiarowe
+Czujników</a></li>
+</ul></li>
+<li><a href="#uwagi-i-ograniczenia" id="toc-uwagi-i-ograniczenia">Uwagi
+i Ograniczenia</a></li>
+<li><a href="#następne-kroki" id="toc-następne-kroki">Następne
+Kroki</a></li>
+<li><a href="#historia-zmian" id="toc-historia-zmian">Historia
+Zmian</a></li>
+<li><a href="#kontekst-dla-kolejnej-sesji-session-handoff"
+id="toc-kontekst-dla-kolejnej-sesji-session-handoff">Kontekst dla
+Kolejnej Sesji (Session Handoff)</a>
+<ul>
+<li><a href="#status-projektu-2025-12-31"
+id="toc-status-projektu-2025-12-31">Status Projektu
+(2025-12-31)</a></li>
+<li><a href="#co-jest-gotowe" id="toc-co-jest-gotowe">Co Jest
+Gotowe</a></li>
+<li><a href="#do-zakupu-pilne" id="toc-do-zakupu-pilne">Do Zakupu
+(PILNE)</a></li>
+<li><a href="#architektura-v1.4---adaptacyjny-deep-sleep"
+id="toc-architektura-v1.4---adaptacyjny-deep-sleep">Architektura v1.4 -
+Adaptacyjny Deep Sleep</a></li>
+<li><a href="#kluczowe-funkcje-w-kodzie-v1.4"
+id="toc-kluczowe-funkcje-w-kodzie-v1.4">Kluczowe Funkcje w Kodzie
+v1.4</a></li>
+<li><a href="#szacowany-czas-pracy-baterii-4000mah-v1.4"
+id="toc-szacowany-czas-pracy-baterii-4000mah-v1.4">Szacowany Czas Pracy
+Baterii 4000mAh (v1.4)</a></li>
+<li><a href="#pinout-xiao---szybka-ściąga"
+id="toc-pinout-xiao---szybka-ściąga">Pinout XIAO - Szybka
+Ściąga</a></li>
+<li><a href="#schemat-zasilania---szybki-podgląd"
+id="toc-schemat-zasilania---szybki-podgląd">Schemat Zasilania - Szybki
+Podgląd</a></li>
+<li><a href="#adresy-i2c-1" id="toc-adresy-i2c-1">Adresy I2C</a></li>
+<li><a href="#kolejne-kroki-w-kolejności"
+id="toc-kolejne-kroki-w-kolejności">Kolejne Kroki (w
+kolejności)</a></li>
+<li><a href="#kompilacja" id="toc-kompilacja">Kompilacja</a></li>
+<li><a href="#znane-problemy-uwagi" id="toc-znane-problemy-uwagi">Znane
+Problemy / Uwagi</a></li>
+<li><a href="#pliki-projektu" id="toc-pliki-projektu">Pliki
+Projektu</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1
+id="projekt-air-condition---system-monitorowania-jakości-powietrza">Projekt:
+Air Condition - System Monitorowania Jakości Powietrza</h1>
+<h2 id="opis-ogólny">Opis Ogólny</h2>
+<p>System monitorowania jakości powietrza i warunków atmosferycznych z
+komunikacją radiową LoRa (SX1262). Urządzenie mierzy temperaturę,
+wilgotność, ciśnienie atmosferyczne oraz stężenie pyłów
+PM1.0/PM2.5/PM10. Dane wyświetlane są na ekranie OLED i mogą być
+przesyłane bezprzewodowo.</p>
+<hr />
+<h2 id="lista-komponentów-bom">Lista Komponentów (BOM)</h2>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 19%" />
+<col style="width: 14%" />
+<col style="width: 23%" />
+<col style="width: 21%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th>#</th>
+<th>Element</th>
+<th>Model</th>
+<th>Interfejs</th>
+<th>Napięcie</th>
+<th>Uwagi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>MCU</td>
+<td>XIAO ESP32-S3 Sense</td>
+<td>-</td>
+<td>3.3V/5V USB</td>
+<td>Główny kontroler</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Moduł LoRa</td>
+<td>Wio-SX1262</td>
+<td>SPI (B2B)</td>
+<td>3.3V</td>
+<td>Komunikacja radiowa</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Czujnik temp./wilg.</td>
+<td>SHTC3 (DFRobot SEN0414)</td>
+<td>I2C</td>
+<td>3.3V</td>
+<td>Adres: 0x70</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Czujnik ciśnienia</td>
+<td>BMP280 (DFRobot SEN0372)</td>
+<td>I2C</td>
+<td>3.3V</td>
+<td>Adres: 0x77 lub 0x76</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Wyświetlacz</td>
+<td>OLED 0.96” 128x64 niebieski</td>
+<td>I2C</td>
+<td>3.3V-5V</td>
+<td>Adres: 0x3C</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Czujnik pyłu</td>
+<td>PMS7003 + adapter IDC-microUSB (CH340G)</td>
+<td>UART</td>
+<td>5V</td>
+<td>Logika 3.3V TTL, goldpiny: 5V/GND/RX/TX</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Buzzer</td>
+<td>Moduł z buzzerem aktywnym (zielony)</td>
+<td>GPIO</td>
+<td>3.3V</td>
+<td>Sygnalizacja alarmów, bezpośrednio do GPIO</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Zasilanie</td>
+<td>Akumulator Li-Po 4000mAh</td>
+<td>-</td>
+<td>3.7V</td>
+<td>Ładowanie przez USB</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Przetwornica</td>
+<td>Pololu S7V7F5 (step-up/step-down)</td>
+<td>-</td>
+<td>IN: 2.7-11.8V -&gt; OUT: 5V 1A</td>
+<td>Zasilanie 5V dla PMS7003</td>
+</tr>
+<tr>
+<td>10</td>
+<td>MOSFET N-channel</td>
+<td>IRLZ44N (TO-220)</td>
+<td>GPIO</td>
+<td>V_DS: 55V, I_D: 47A, V_GS(th): 1-2V</td>
+<td>Low-side switching zasilania peryferiów</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Rezystory</td>
+<td>10kΩ (THT)</td>
+<td>-</td>
+<td>-</td>
+<td>Pull-down dla bramek MOSFET</td>
+</tr>
+</tbody>
+</table>
+<h3 id="linki-do-zakupu-botland">Linki do Zakupu (Botland)</h3>
+<table>
+<colgroup>
+<col style="width: 60%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr>
+<th>Element</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pololu S7V7F5</td>
+<td>https://botland.com.pl/przetwornice-step-updown-pololu/1696-pololu-s7v7f5-przetwornica-step-upstep-down-5v-1a-5904422359898.html</td>
+</tr>
+<tr>
+<td>IRLZ44N (5szt)</td>
+<td>https://botland.com.pl/n-mosfet/1950-n-mosfet-irlz44n-55v47a-tht-5szt-5904422373276.html</td>
+</tr>
+<tr>
+<td>Adapter PMS7003 IDC-microUSB</td>
+<td>https://botland.com.pl/czujniki-czystosci-powietrza/13445-adapter-idc-10pin-127mm-microusb-dla-czujnika-pms7003-5904422372293.html</td>
+</tr>
+<tr>
+<td>Moduł z buzzerem aktywnym (zielony)</td>
+<td>https://botland.com.pl/buzzery-generatory-dzwieku/4526-modul-z-buzzerem-aktywnym-z-generatorem-zielony-5904422300654.html</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ilości-elementów-do-zakupu">Ilości Elementów do Zakupu</h3>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 17%" />
+<col style="width: 38%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>Element</th>
+<th>Ilość</th>
+<th>Przeznaczenie</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IRLZ44N N-MOSFET</td>
+<td>2 szt</td>
+<td>Q1: low-side switch 5V (PMS7003+Pololu), Q2: low-side switch 3.3V
+(czujniki I2C+OLED)</td>
+<td><strong>KUPIONY</strong></td>
+</tr>
+<tr>
+<td>Rezystor 10kΩ</td>
+<td>2 szt</td>
+<td>R1, R2: pull-down bramek (domyślnie OFF)</td>
+<td>DO ZAKUPU</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="analiza-kompatybilności">Analiza Kompatybilności</h2>
+<h3 id="zgodność-napięć">Zgodność Napięć</h3>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 18%" />
+<col style="width: 47%" />
+</colgroup>
+<thead>
+<tr>
+<th>Komponent</th>
+<th>Zasilanie</th>
+<th>Logika I/O</th>
+<th>Kompatybilność z ESP32 (3.3V)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>XIAO ESP32-S3</td>
+<td>3.7V bat / 5V USB</td>
+<td>3.3V</td>
+<td>- (główny kontroler)</td>
+</tr>
+<tr>
+<td>Wio-SX1262</td>
+<td>3.3V</td>
+<td>3.3V</td>
+<td><strong>OK</strong> - natywne 3.3V</td>
+</tr>
+<tr>
+<td>SHTC3</td>
+<td>1.62V-3.6V</td>
+<td>3.3V</td>
+<td><strong>OK</strong> - natywne 3.3V</td>
+</tr>
+<tr>
+<td>BMP280</td>
+<td>1.71V-3.6V</td>
+<td>3.3V</td>
+<td><strong>OK</strong> - natywne 3.3V</td>
+</tr>
+<tr>
+<td>OLED 128x64</td>
+<td>3.3V-5V</td>
+<td>3.3V</td>
+<td><strong>OK</strong> - toleruje 3.3V</td>
+</tr>
+<tr>
+<td>PMS7003</td>
+<td>5V</td>
+<td>3.3V TTL</td>
+<td><strong>WYMAGA 5V</strong> - przez przetwornicę</td>
+</tr>
+<tr>
+<td>Buzzer aktywny</td>
+<td>3.3V</td>
+<td>-</td>
+<td><strong>OK</strong> - bezpośrednio do GPIO (&lt;20mA)</td>
+</tr>
+<tr>
+<td>Pololu S7V7F5</td>
+<td>2.7-11.8V</td>
+<td>-</td>
+<td><strong>OK</strong> - zasila PMS7003</td>
+</tr>
+<tr>
+<td>IRLZ44N N-MOSFET</td>
+<td>-</td>
+<td>3.3V bramka</td>
+<td><strong>OK</strong> - logic-level, V_GS(th)=1-2V, pełne otwarcie
+przy 3.3V</td>
+</tr>
+</tbody>
+</table>
+<h3 id="wynik-analizy">Wynik Analizy</h3>
+<p><strong>Wszystkie komponenty są kompatybilne</strong> z ESP32-S3
+(3.3V logika).</p>
+<h3 id="ważne-problem-zasilania-5v-przy-pracy-bateryjnej">WAŻNE: Problem
+Zasilania 5V przy Pracy Bateryjnej</h3>
+<blockquote>
+<p><strong>Pin 5V na XIAO ESP32-S3 NIE DZIAŁA przy zasilaniu z
+baterii!</strong></p>
+<p>XIAO nie posiada wbudowanej przetwornicy boost (step-up). Pin 5V jest
+bezpośrednio połączony z USB VBUS - dostarcza 5V tylko gdy podłączone
+jest USB.</p>
+<table>
+<thead>
+<tr>
+<th>Źródło zasilania</th>
+<th>Pin 5V</th>
+<th>Pin 3V3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USB-C</td>
+<td><strong>5V</strong></td>
+<td>3.3V</td>
+</tr>
+<tr>
+<td>Bateria 3.7V</td>
+<td><strong>0V (brak!)</strong></td>
+<td>3.3V</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h3 id="rozwiązanie-przetwornica-pololu-s7v7f5">Rozwiązanie:
+Przetwornica Pololu S7V7F5</h3>
+<p>Przetwornica step-up/step-down konwertuje napięcie z baterii (3.7V)
+na stabilne 5V dla PMS7003.</p>
+<p><strong>Specyfikacja Pololu S7V7F5:</strong> - Napięcie wejściowe:
+2.7V - 11.8V - Napięcie wyjściowe: 5V (stałe) - Prąd wyjściowy: do 1A
+(wystarczający dla PMS7003 ~100mA) - Sprawność: ~90% - Wymiary: 9.7mm x
+10.7mm x 3mm</p>
+<p><strong>Uwagi:</strong> - PMS7003 wymaga 5V zasilania - <strong>MUSI
+być zasilany z przetwornicy Pololu</strong> - Moduł buzzera aktywnego
+(zielony) - <strong>bezpośrednio do GPIO</strong> (pobór ~10-15mA) -
+OLED może pracować na 3.3V (z modułu DFRobot ma wbudowany regulator)</p>
+<hr />
+<h2 id="schemat-połączeń">Schemat Połączeń</h2>
+<h3 id="pinout-xiao-esp32-s3-sense">Pinout XIAO ESP32-S3 Sense</h3>
+<pre><code>             XIAO ESP32-S3 Sense
+             ┌───────────────────┐
+       D0/A0 │ 1              14 │ 5V
+       D1/A1 │ 2              13 │ GND
+       D2/A2 │ 3              12 │ 3V3
+       D3/A3 │ 4              11 │ D10/MOSI
+       D4/A4 │ 5              10 │ D9/MISO
+       D5/A5 │ 6               9 │ D8/SCK
+   D6/TX/A6  │ 7               8 │ D7/RX/A7
+             └───────────────────┘
+                   [USB-C]</code></pre>
+<h3 id="tabela-połączeń">Tabela Połączeń</h3>
+<table>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 14%" />
+<col style="width: 24%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr>
+<th>XIAO GPIO</th>
+<th>Funkcja</th>
+<th>Podłączony do</th>
+<th>Kolor przewodu (sugestia)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>I2C (wspólna magistrala)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>D4 (GPIO5)</td>
+<td>SDA</td>
+<td>SHTC3, BMP280, OLED</td>
+<td>Niebieski</td>
+</tr>
+<tr>
+<td>D5 (GPIO6)</td>
+<td>SCL</td>
+<td>SHTC3, BMP280, OLED</td>
+<td>Żółty</td>
+</tr>
+<tr>
+<td><strong>UART (PMS7003)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>D6 (GPIO43)</td>
+<td>TX</td>
+<td>PMS7003 RX</td>
+<td>Zielony</td>
+</tr>
+<tr>
+<td>D7 (GPIO44)</td>
+<td>RX</td>
+<td>PMS7003 TX</td>
+<td>Biały</td>
+</tr>
+<tr>
+<td><strong>Sterowanie zasilaniem (MOSFETy)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>D1 (GPIO2)</td>
+<td>PWR_5V_EN</td>
+<td>Q1 bramka (przez R1) - zasilanie 5V</td>
+<td>Fioletowy</td>
+</tr>
+<tr>
+<td>D2 (GPIO3)</td>
+<td>PWR_3V3_EN</td>
+<td>Q2 bramka (przez R2) - zasilanie 3.3V peryferiów</td>
+<td>Szary</td>
+</tr>
+<tr>
+<td><strong>Buzzer</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>D0 (GPIO1)</td>
+<td>BUZZER_OUT</td>
+<td>Buzzer S (bezpośrednio)</td>
+<td>Pomarańczowy</td>
+</tr>
+<tr>
+<td><strong>Przycisk wybudzenia</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>D3 (GPIO4)</td>
+<td>BUTTON_WAKE</td>
+<td>Przycisk NO do GND (wbudowany pull-up)</td>
+<td>Brązowy</td>
+</tr>
+<tr>
+<td><strong>Zasilanie stałe (zawsze włączone)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3V3</td>
+<td>3.3V</td>
+<td>Rezystory pull-up MOSFETów</td>
+<td>Czerwony</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>GND</td>
+<td>Wszystkie moduły</td>
+<td>Czarny</td>
+</tr>
+<tr>
+<td><strong>SX1262 (B2B - wbudowane)</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>GPIO41</td>
+<td>NSS/CS</td>
+<td>SX1262</td>
+<td>(B2B)</td>
+</tr>
+<tr>
+<td>GPIO7</td>
+<td>SCK</td>
+<td>SX1262</td>
+<td>(B2B)</td>
+</tr>
+<tr>
+<td>GPIO9</td>
+<td>MOSI</td>
+<td>SX1262</td>
+<td>(B2B)</td>
+</tr>
+<tr>
+<td>GPIO8</td>
+<td>MISO</td>
+<td>SX1262</td>
+<td>(B2B)</td>
+</tr>
+<tr>
+<td>GPIO42</td>
+<td>RST</td>
+<td>SX1262</td>
+<td>(B2B)</td>
+</tr>
+<tr>
+<td>GPIO40</td>
+<td>BUSY</td>
+<td>SX1262</td>
+<td>(B2B)</td>
+</tr>
+<tr>
+<td>GPIO39</td>
+<td>DIO1/IRQ</td>
+<td>SX1262</td>
+<td>(B2B)</td>
+</tr>
+<tr>
+<td>GPIO38</td>
+<td>ANTSW</td>
+<td>SX1262</td>
+<td>(B2B)</td>
+</tr>
+<tr>
+<td><strong>Akumulator</strong></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>BAT+</td>
+<td>+</td>
+<td>Akumulator 3.7V (+)</td>
+<td>Czerwony</td>
+</tr>
+<tr>
+<td>BAT-</td>
+<td>-</td>
+<td>Akumulator 3.7V (-)</td>
+<td>Czarny</td>
+</tr>
+</tbody>
+</table>
+<h3
+id="schemat-połączeń-na-płytce-uniwersalnej-low-side-switching">Schemat
+Połączeń na Płytce Uniwersalnej (Low-Side Switching)</h3>
+<p><strong>UWAGA:</strong> GND Pololu i GND PMS7003 idą RAZEM do Q1
+Drain!</p>
+<pre><code>SEKCJA ZASILANIA 5V (Q1)
+========================
+
+  BAT+ 3.7V ──────┬────────────────&gt; XIAO BAT+
+                  │
+                  v
+            ┌──────────┐
+            │  POLOLU  │
+            │  S7V7F5  │
+            │          │
+            │ VIN  GND │──┐
+            │ VOUT     │  │
+            └────┬─────┘  │
+                 │        │
+                 v        │
+           ┌──────────┐   │
+           │ PMS7003  │   │
+           │ VCC  GND │───┤
+           └──────────┘   │
+                          │
+                     Q1 DRAIN
+                          │
+    D1 (GPIO2) ───────────┼───&gt; Q1 Gate
+          │               │
+        [10k]        ┌────┴────┐
+          │          │ IRLZ44N │
+         GND         │   Q1    │
+                     └────┬────┘
+                          │
+                     Q1 SOURCE
+                          │
+                     GND GŁÓWNA</code></pre>
+<pre><code>SEKCJA I2C 3.3V (Q2)
+====================
+
+  XIAO 3V3 ───┬────────┬────────┐
+              │        │        │
+              v        v        v
+           ┌─────┐  ┌─────┐  ┌─────┐
+           │SHTC3│  │BMP28│  │OLED │
+           │ VCC │  │ VCC │  │ VCC │
+           │ GND │  │ GND │  │ GND │
+           └──┬──┘  └──┬──┘  └──┬──┘
+              │        │        │
+              └────────┴────────┤
+                                │
+                           Q2 DRAIN
+                                │
+    D2 (GPIO3) ─────────────────┼───&gt; Q2 Gate
+          │                     │
+        [10k]              ┌────┴────┐
+          │                │ IRLZ44N │
+         GND               │   Q2    │
+                           └────┬────┘
+                                │
+                           Q2 SOURCE
+                                │
+                           GND GŁÓWNA</code></pre>
+<pre><code>BUZZER (bezpośrednio do GPIO)
+=============================
+
+    XIAO 3V3 ───&gt; Buzzer (+)
+    D0 (GPIO1) ──&gt; Buzzer (S)
+    GND główna ──&gt; Buzzer (-)</code></pre>
+<h3
+id="schemat-zasilania-z-mosfetami-n-channel-low-side-switching">Schemat
+Zasilania z MOSFETami N-channel (LOW-SIDE SWITCHING)</h3>
+<pre><code>SCHEMAT ZASILANIA - LOW-SIDE SWITCHING (N-MOSFET IRLZ44N)
+═════════════════════════════════════════════════════════
+
+WAŻNE: N-MOSFET odcina MASĘ (GND), nie zasilanie VCC!
+       Q1 odcina GND dla CAŁEJ LINII 5V (Pololu + PMS7003)
+       Q2 odcina GND dla czujników I2C + OLED
+
+
+                        AKUMULATOR Li-Po 3.7V
+                             (+)     (-)
+                              │       │
+              ┌───────────────┤       │
+              │               │       │
+              ▼               ▼       ▼
+          XIAO BAT+      Pololu VIN   GND główna
+                              │           │
+                         [przetwornica]   │
+                              │           │
+                         VOUT (5V)        │
+                              │           │
+                              ▼           │
+                      ┌───────┴───────┐   │
+                      │               │   │
+                      ▼               ▼   │
+                 PMS7003 VCC    Pololu GND│
+                      │               │   │
+                 PMS7003 GND          │   │
+                      │               │   │
+                      └───────┬───────┘   │
+                              │           │
+                         Q1 DRAIN         │
+                              │           │
+                D1 (GPIO2) ───┼─── Gate   │
+                      │       │           │
+                    [10k]   Q1 IRLZ44N    │
+                      │       │           │
+                     GND  SOURCE ─────────┤
+                 (pull-down)              │
+                                          │
+                      ┌───────────────────┘
+                      │
+                      ▼
+      ┌───────────────┼───────────────┐
+      │               │               │
+      ▼               ▼               ▼
+ SHTC3 GND      BMP280 GND       OLED GND
+      │               │               │
+      └───────┬───────┴───────┬───────┘
+              │               │
+         Q2 DRAIN             │
+              │               │
+D2 (GPIO3) ───┼─── Gate       │
+      │       │               │
+    [10k]   Q2 IRLZ44N        │
+      │       │               │
+     GND  SOURCE ─────────────┴──→ GND główna
+ (pull-down)</code></pre>
+<h3 id="schemat-blokowy-zasilania">Schemat Blokowy Zasilania</h3>
+<pre><code>┌─────────────┐     ┌─────────────┐     ┌───────────┐
+│ AKUMULATOR  │     │    XIAO     │     │ CZUJNIKI  │
+│   3.7V      │────▶│   BAT+      │     │   I2C     │
+│   Li-Po     │     │             │     │ SHTC3     │
+└──────┬──────┘     │     3V3 ────┼────▶│ BMP280    │
+       │            │             │     │ OLED      │
+       │            │   D1 (GPIO2)│──┐  └───────────┘
+       │            │   D2 (GPIO3)│──┼───▶ Q2 Gate    GND przez Q2
+       │            └─────────────┘  │
+       │                             │
+       ▼                             │
+┌──────┴──────┐                      │
+│   POLOLU    │                      │
+│   S7V7F5    │                      │
+│             │                      │
+│ VIN  = BAT+ │                      │
+│ VOUT = 5V   │───▶ PMS7003 VCC      │
+│ GND ────────┼─┐                    │
+└─────────────┘ │                    │
+                │                    │
+                ▼                    │
+          ┌─────┴─────┐              │
+          │  PMS7003  │              │
+          │   GND     │              │
+          └─────┬─────┘              │
+                │                    │
+                └───────▶ Q1 Drain ◀─┼── D1 (GPIO2)
+                               │
+                          Q1 Source ──▶ GND główna</code></pre>
+<h3 id="szczegółowy-schemat-q1-linia-5v">Szczegółowy Schemat Q1 (Linia
+5V)</h3>
+<pre><code>                    BAT+ (3.7V, z akumulatora)
+                         │
+         ┌───────────────┼───────────────┐
+         │                               │
+         ▼                               ▼
+    XIAO BAT+                       Pololu VIN
+                                         │
+                                    [przetwornica]
+                                         │
+                                    VOUT = 5V
+                                         │
+                 ┌───────────────────────┤
+                 │                       │
+                 ▼                       ▼
+          PMS7003 VCC              Pololu GND
+                 │                       │
+          PMS7003 GND                    │
+                 │                       │
+                 └───────────┬───────────┘
+                             │
+                             │  (wspólna masa Pololu + PMS7003)
+                             │
+                        Q1 DRAIN
+                             │
+       GPIO2 (D1) ───────────┼──────┐
+             │                      │
+             │                 ┌────┴────┐
+             │                 │ IRLZ44N │
+             │                 │   Q1    │
+           [10k]               │  N-CH   │
+             │                 └────┬────┘
+             │                      │
+            GND                Q1 SOURCE
+        (pull-down)                 │
+                                    ▼
+                              GND GŁÓWNA
+                         (masa akumulatora)
+
+
+DZIAŁANIE:
+  GPIO2 = HIGH (3.3V) ──▶ Q1 ON  ──▶ GND połączone ──▶ Pololu+PMS WŁĄCZONE
+  GPIO2 = LOW  (0V)   ──▶ Q1 OFF ──▶ GND odcięte   ──▶ Pololu+PMS WYŁĄCZONE
+
+KLUCZOWA ZMIANA: GND Pololu idzie przez Q1 (nie bezpośrednio do masy!)
+                 Dzięki temu wyłączenie Q1 odcina prąd jałowy (~2mA)</code></pre>
+<h3 id="szczegółowy-schemat-q2-linia-3.3v---i2c">Szczegółowy Schemat Q2
+(Linia 3.3V - I2C)</h3>
+<pre><code>                    3V3 (z regulatora XIAO, stałe)
+                         │
+         ┌───────────────┼───────────────┐
+         │               │               │
+         ▼               ▼               ▼
+    SHTC3 VCC      BMP280 VCC       OLED VCC
+         │               │               │
+    SHTC3 GND      BMP280 GND       OLED GND
+         │               │               │
+         └───────┬───────┴───────┬───────┘
+                 │               │
+                 │  (wspólna masa czujników I2C)
+                 │
+            Q2 DRAIN
+                 │
+   GPIO3 (D2) ───┼───────────────┐
+         │                       │
+         │                  ┌────┴────┐
+         │                  │ IRLZ44N │
+         │                  │   Q2    │
+       [10k]                │  N-CH   │
+         │                  └────┬────┘
+         │                       │
+        GND                 Q2 SOURCE
+    (pull-down)                  │
+                                 ▼
+                           GND GŁÓWNA
+
+
+DZIAŁANIE:
+  GPIO3 = HIGH (3.3V) ──▶ Q2 ON  ──▶ GND połączone ──▶ Czujniki WŁĄCZONE
+  GPIO3 = LOW  (0V)   ──▶ Q2 OFF ──▶ GND odcięte   ──▶ Czujniki WYŁĄCZONE</code></pre>
+<h3 id="logika-sterowania">Logika Sterowania</h3>
+<pre><code>┌──────────────────────────────────────────────────────────────────┐
+│  STEROWANIE N-MOSFET (LOW-SIDE)                                  │
+├──────────────────────────────────────────────────────────────────┤
+│  GPIO = HIGH (3.3V) ──▶ MOSFET ON  ──▶ GND podłączone ──▶ ON     │
+│  GPIO = LOW  (0V)   ──▶ MOSFET OFF ──▶ GND odcięte    ──▶ OFF    │
+└──────────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────────┐
+│  STANY PRZY STARCIE/RESECIE ESP32                                │
+├──────────────────────────────────────────────────────────────────┤
+│  GPIO w stanie Hi-Z (wysoka impedancja)                          │
+│  Rezystor 10k pull-down ściąga Gate do GND                       │
+│  MOSFET OFF ──▶ peryferia WYŁĄCZONE ──▶ ochrona baterii          │
+└──────────────────────────────────────────────────────────────────┘</code></pre>
+<h3 id="podsumowanie-połączeń-zasilania">Podsumowanie Połączeń
+Zasilania</h3>
+<pre><code>AKUMULATOR 3.7V
+    │
+    ├────────▶ XIAO BAT+ (zasilanie mikrokontrolera)
+    │
+    ├────────▶ Pololu VIN (wejście przetwornicy)
+    │
+    └────────▶ GND główna
+                   │
+                   ├────────▶ XIAO GND
+                   │
+                   ├────────▶ Q1 Source
+                   │
+                   ├────────▶ Q2 Source
+                   │
+                   └────────▶ Buzzer (-)
+
+Q1 Drain ◀──────── Pololu GND + PMS7003 GND (wspólnie!)
+
+Q2 Drain ◀──────── SHTC3 GND + BMP280 GND + OLED GND (wspólnie!)</code></pre>
+<h3 id="schemat-pojedynczego-switcha-n-mosfet-low-side">Schemat
+Pojedynczego Switcha N-MOSFET (Low-Side)</h3>
+<pre><code>ZASADA DZIAŁANIA N-MOSFET LOW-SIDE SWITCHING
+═════════════════════════════════════════════
+
+           VCC (3.3V lub 5V - stałe zasilanie)
+            │
+            │
+       ┌────┴────┐
+       │URZĄDZENIE│  (czujnik, przetwornica, itp.)
+       └────┬────┘
+            │
+            │ GND urządzenia
+            │
+            ▼
+       ┌─────────┐
+       │         │
+       │  DRAIN  │ ◀── tu podłączasz GND urządzenia
+       │         │
+       │ IRLZ44N │
+       │  N-CH   │
+       │         │
+       │  GATE ──┼─────┐
+       │         │     │
+       │ SOURCE  │   [10k] pull-down
+       │         │     │
+       └────┬────┘    GND
+            │
+            │
+            ▼
+       GND GŁÓWNA (masa akumulatora)
+
+
+STEROWANIE Z GPIO:
+
+    GPIO (D1 lub D2)
+            │
+            └──────────▶ GATE
+            │
+          [10k]
+            │
+           GND
+
+
+LOGIKA:
+  GPIO = HIGH (3.3V)  ──▶  MOSFET ON   ──▶  GND połączone  ──▶  DZIAŁA
+  GPIO = LOW  (0V)    ──▶  MOSFET OFF  ──▶  GND odcięte    ──▶  WYŁĄCZONE
+  GPIO = Hi-Z (reset) ──▶  pull-down   ──▶  MOSFET OFF     ──▶  WYŁĄCZONE
+
+
+PINOUT IRLZ44N (TO-220, widok od przodu - strona z napisem):
+
+       ┌─────────────┐
+       │   IRLZ44N   │
+       │             │
+       │  ┌───────┐  │
+       │  │       │  │
+       │  │ metal │  │  ◀── radiator (połączony z Drain)
+       │  │       │  │
+       │  └───────┘  │
+       └──┬──┬──┬────┘
+          │  │  │
+          │  │  │
+          G  D  S
+         (1)(2)(3)
+
+    Pin 1 (G) - Gate   - sterowanie z GPIO + 10k do GND
+    Pin 2 (D) - Drain  - GND urządzenia (urządzeń)
+    Pin 3 (S) - Source - GND główna (masa akumulatora)
+
+
+PARAMETRY IRLZ44N (logic-level MOSFET):
+  • V_GS(th) = 1-2V      (włącza się przy 3.3V z GPIO - OK!)
+  • R_DS(on) = 0.065 Ω   (bardzo niskie straty)
+  • I_D = 47A            (dużo więcej niż potrzeba)
+  • V_DS = 55V           (dużo więcej niż potrzeba)
+  • Obudowa TO-220       (duża, łatwa do lutowania)</code></pre>
+<h3 id="schemat-sterowania-buzzerem-bezpośrednio-do-gpio">Schemat
+Sterowania Buzzerem (bezpośrednio do GPIO)</h3>
+<pre><code>BUZZER AKTYWNY - PODŁĄCZENIE
+════════════════════════════
+
+    3.3V (z XIAO, zasilanie stałe)
+     │
+     │ (+)
+     ▼
+┌────┴────┐
+│  BUZZER │
+│ aktywny │
+│(zielony)│
+└────┬────┘
+     │
+     │ (S) sygnał
+     ▼
+  D0 (GPIO1)  ◀── sterowanie ON/OFF
+     
+     │ (-)
+     ▼
+GND główna
+
+
+PINY MODUŁU BUZZERA:
+  (+) = VCC  ──▶ 3.3V z XIAO
+  (-) = GND  ──▶ GND główna (bezpośrednio, nie przez MOSFET!)
+  (S) = SIG  ──▶ D0 (GPIO1)
+
+STEROWANIE:
+  GPIO1 = HIGH ──▶ buzzer włączony (piszczy)
+  GPIO1 = LOW  ──▶ buzzer wyłączony (cicho)
+
+POBÓR PRĄDU: ~10-15mA (bezpiecznie dla GPIO ESP32, max 40mA)</code></pre>
+<p><strong>Moduł z buzzerem aktywnym (zielony)</strong> - Botland 4526:
+- Pobór prądu ~10-15mA - bezpiecznie w zakresie GPIO ESP32 (max 40mA) -
+Piny: S (sygnał), - (GND), + (VCC 3.3V) - GPIO HIGH = buzzer włączony,
+GPIO LOW = buzzer wyłączony - <strong>Nie wymaga tranzystora</strong> -
+można podłączyć bezpośrednio</p>
+<hr />
+<h2 id="zarządzanie-energią-power-management">Zarządzanie Energią (Power
+Management)</h2>
+<h3 id="strategia-oszczędzania-energii">Strategia Oszczędzania
+Energii</h3>
+<p>System wykorzystuje dwa MOSFETy N-channel (IRLZ44N) do odcinania masy
+peryferiów (low-side switching):</p>
+<table>
+<thead>
+<tr>
+<th>MOSFET</th>
+<th>GPIO</th>
+<th>Funkcja</th>
+<th>Kontrolowane urządzenia</th>
+<th>Logika</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q1</td>
+<td>D1 (GPIO2)</td>
+<td>PWR_5V_EN</td>
+<td>GND dla Pololu + PMS7003</td>
+<td>HIGH=ON</td>
+</tr>
+<tr>
+<td>Q2</td>
+<td>D2 (GPIO3)</td>
+<td>PWR_3V3_EN</td>
+<td>GND dla SHTC3, BMP280, OLED</td>
+<td>HIGH=ON</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tryby-pracy-systemu">Tryby Pracy Systemu</h3>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 23%" />
+<col style="width: 28%" />
+<col style="width: 17%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr>
+<th>Tryb</th>
+<th>Q1 (5V)</th>
+<th>Q2 (3.3V)</th>
+<th>ESP32</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FULL_MEASUREMENT</strong></td>
+<td>ON</td>
+<td>ON</td>
+<td>Active</td>
+<td>Pełny pomiar (PM + I2C) - co N cykli</td>
+</tr>
+<tr>
+<td><strong>QUICK_MEASUREMENT</strong></td>
+<td>OFF</td>
+<td>ON</td>
+<td>Active</td>
+<td>Tylko I2C + ostatni PM - co 15 min</td>
+</tr>
+<tr>
+<td><strong>DEEP_SLEEP</strong></td>
+<td>OFF</td>
+<td>OFF</td>
+<td>Deep Sleep</td>
+<td>Minimalne zużycie</td>
+</tr>
+</tbody>
+</table>
+<h3 id="adaptacyjny-pomiar-pms-v1.4">Adaptacyjny Pomiar PMS (v1.4)</h3>
+<p><strong>NOWA ARCHITEKTURA:</strong> Stały interwał wybudzenia 15
+minut, adaptacyjny pomiar PMS.</p>
+<pre><code>INTERWAŁ WYBUDZENIA: STAŁY 15 MINUT
+===================================
+
+Co 15 minut ESP32 się budzi i wykonuje:
+- ZAWSZE: Odczyt I2C (temp, wilg, ciśnienie) + Wyświetlanie + LoRa TX
+- ADAPTACYJNIE: Co N-ty cykl włączamy PMS7003 (30s rozgrzewki)
+
+PM2.5 [µg/m³]     Jakość           Co ile cykli PMS    Efektywny interwał PM
+--------------------------------------------------------------------------------
+0 - 15            DOBRA            co 8 cykli          8 × 15min = 2h
+15 - 35           UMIARKOWANA      co 4 cykle          4 × 15min = 1h
+35 - 75           NIEZDROWA        co 2 cykle          2 × 15min = 30min
+&gt; 75              ZŁA              co każdy cykl       1 × 15min = 15min + ALARM!</code></pre>
+<h3 id="typy-wybudzeń">Typy Wybudzeń</h3>
+<table>
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 22%" />
+<col style="width: 18%" />
+<col style="width: 22%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr>
+<th>Wybudzenie</th>
+<th>Działanie</th>
+<th>Q1 (5V)</th>
+<th>Q2 (3.3V)</th>
+<th>Czas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>TIMER</strong> (co 15min)</td>
+<td>Quick lub Full (adaptacyjnie)</td>
+<td>OFF/ON</td>
+<td>ON</td>
+<td>5s / 35s</td>
+</tr>
+<tr>
+<td><strong>BUTTON</strong></td>
+<td>Quick + restart cyklu 15min</td>
+<td>OFF</td>
+<td>ON</td>
+<td>~5s</td>
+</tr>
+<tr>
+<td><strong>POWER_ON</strong></td>
+<td>Full (zawsze)</td>
+<td>ON</td>
+<td>ON</td>
+<td>~35s</td>
+</tr>
+</tbody>
+</table>
+<h3 id="zmienne-rtc-przeżywają-deep-sleep">Zmienne RTC (przeżywają deep
+sleep)</h3>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>RTC_DATA_ATTR <span class="dt">uint16_t</span> lastPM1_0 <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>       <span class="co">// Ostatni pomiar PM1.0</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>RTC_DATA_ATTR <span class="dt">uint16_t</span> lastPM2_5 <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>       <span class="co">// Ostatni pomiar PM2.5</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>RTC_DATA_ATTR <span class="dt">uint16_t</span> lastPM10 <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>        <span class="co">// Ostatni pomiar PM10</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>RTC_DATA_ATTR <span class="dt">uint8_t</span> pmsSkipCounter <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>   <span class="co">// Licznik do następnego PMS</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>RTC_DATA_ATTR <span class="dt">uint8_t</span> loraSeqNum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span>       <span class="co">// Numer sekwencji LoRa</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>RTC_DATA_ATTR <span class="dt">bool</span> historyChanged <span class="op">=</span> <span class="kw">false</span><span class="op">;</span>  <span class="co">// Flaga zmiany historii</span></span></code></pre></div>
+<h3 id="algorytm-adaptacyjny-v1.4---schemat">Algorytm Adaptacyjny v1.4 -
+Schemat</h3>
+<pre><code>CYKL PRACY Z ADAPTACYJNYM PMS
+═════════════════════════════
+
+                    [WAKEUP co 15 min]
+                           │
+           ┌───────────────┼───────────────┐
+           │               │               │
+       BUTTON          TIMER           POWER_ON
+           │               │               │
+           ▼               ▼               ▼
+    ┌────────────┐   shouldMeasurePMS()?   ┌────────────┐
+    │   QUICK    │         │               │   FULL     │
+    │ I2C only   │    ┌────┴────┐          │ I2C + PMS  │
+    └─────┬──────┘   TAK       NIE         └─────┬──────┘
+          │           │         │                │
+          │           ▼         ▼                │
+          │      ┌────────┐ ┌────────┐           │
+          │      │  FULL  │ │ QUICK  │           │
+          │      │I2C+PMS │ │I2C only│           │
+          │      └───┬────┘ └───┬────┘           │
+          │          │          │                │
+          └──────────┴────┬─────┴────────────────┘
+                          │
+                          ▼
+                  Wyświetl na OLED
+                  (2 cykle = 22s)
+                          │
+                          ▼
+                     LoRa TX
+                  (świeże I2C +
+                   ostatni/nowy PM)
+                          │
+                          ▼
+                  ┌───────────────┐
+                  │  DEEP SLEEP   │
+                  │   15 minut    │
+                  │  Q1=OFF       │
+                  │  Q2=OFF       │
+                  └───────────────┘</code></pre>
+<h3 id="quick-measurement-bez-pms">Quick Measurement (bez PMS)</h3>
+<pre><code>performQuickMeasurement()
+═════════════════════════
+1. Q2=ON (3.3V dla I2C)
+2. Init I2C + czujniki
+3. Odczyt SHTC3 (temp, wilg)
+4. Odczyt BMP280 (ciśnienie)
+5. PM = wartości z RTC (lastPM2_5, lastPM10)
+6. Wyświetl na OLED (2 cykle = 22s)
+7. LoRa TX (świeże I2C + ostatni PM)
+8. Q2=OFF
+9. Deep sleep 15 min
+
+Czas: ~27s (bez 30s rozgrzewki PMS!)</code></pre>
+<h3 id="full-measurement-z-pms">Full Measurement (z PMS)</h3>
+<pre><code>performFullMeasurement()
+════════════════════════
+1. Q1=ON, Q2=ON (5V + 3.3V)
+2. Init I2C + czujniki
+3. Init PMS7003
+4. Rozgrzewka PMS 30s (animacja wentylatora)
+5. Odczyt SHTC3, BMP280, PMS7003
+6. Zapisz PM do RTC
+7. Ustaw pmsSkipCounter (adaptacyjnie)
+8. Dodaj do historii
+9. Alarm jeśli PM2.5 &gt; 75
+10. Wyświetl na OLED (2 cykle = 22s)
+11. LoRa TX
+12. Zapisz historię do NVS (jeśli się zmieniła)
+13. Q1=OFF, Q2=OFF
+14. Deep sleep 15 min
+
+Czas: ~57s (30s rozgrzewka + 27s)</code></pre>
+<h3 id="kod-adaptacyjnego-zarządzania-energią-v1.4">Kod Adaptacyjnego
+Zarządzania Energią (v1.4)</h3>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ============================================</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co">// DEEP SLEEP - Konfiguracja</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co">// ============================================</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#define WAKEUP_INTERVAL_SEC      </span><span class="dv">900</span><span class="pp">       </span><span class="co">// 15 minut - stały interwał wybudzenia</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#define WAKEUP_INTERVAL_US       </span><span class="op">(</span>WAKEUP_INTERVAL_SEC<span class="pp"> </span><span class="op">*</span><span class="pp"> </span><span class="dv">1000000</span><span class="bu">ULL</span><span class="op">)</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="pp">#define WAKEUP_BUTTON_PIN        </span>GPIO_NUM_4</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="pp">#define PRE_SLEEP_DISPLAY_CYCLES </span><span class="dv">2</span><span class="pp">         </span><span class="co">// 2 cykle ekranów = 22s</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Adaptacyjny pomiar PMS - co ile cykli 15min włączać PMS7003</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="pp">#define PMS_SKIP_GOOD            </span><span class="dv">8</span><span class="pp">   </span><span class="co">// PM&lt;15:  co 8 cykli = 2h</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="pp">#define PMS_SKIP_MODERATE        </span><span class="dv">4</span><span class="pp">   </span><span class="co">// PM&lt;35:  co 4 cykle = 1h</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="pp">#define PMS_SKIP_UNHEALTHY       </span><span class="dv">2</span><span class="pp">   </span><span class="co">// PM&lt;75:  co 2 cykle = 30min</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="pp">#define PMS_SKIP_BAD             </span><span class="dv">1</span><span class="pp">   </span><span class="co">// PM&gt;=75: każdy cykl = 15min</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co">// Progi PM2.5</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="pp">#define PM25_GOOD           </span><span class="dv">15</span><span class="pp">      </span><span class="co">// µg/m³</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="pp">#define PM25_MODERATE       </span><span class="dv">35</span><span class="pp">      </span><span class="co">// µg/m³</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="pp">#define PM25_UNHEALTHY      </span><span class="dv">75</span><span class="pp">      </span><span class="co">// µg/m³</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co">// ============================================</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="co">// ZMIENNE RTC (przeżywają deep sleep)</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="co">// ============================================</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>RTC_DATA_ATTR <span class="dt">uint16_t</span> lastPM1_0 <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>RTC_DATA_ATTR <span class="dt">uint16_t</span> lastPM2_5 <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>RTC_DATA_ATTR <span class="dt">uint16_t</span> lastPM10 <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>RTC_DATA_ATTR <span class="dt">uint8_t</span> pmsSkipCounter <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>RTC_DATA_ATTR <span class="dt">uint8_t</span> loraSeqNum <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>RTC_DATA_ATTR <span class="dt">bool</span> historyChanged <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a><span class="co">// ============================================</span></span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a><span class="co">// FUNKCJE ADAPTACYJNEGO PMS</span></span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a><span class="co">// ============================================</span></span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a><span class="dt">uint8_t</span> getPmsSkipCount<span class="op">(</span><span class="dt">uint16_t</span> pm25<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>pm25 <span class="op">&lt;</span> PM25_GOOD<span class="op">)</span>       <span class="cf">return</span> PMS_SKIP_GOOD<span class="op">;</span>       <span class="co">// 8</span></span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>pm25 <span class="op">&lt;</span> PM25_MODERATE<span class="op">)</span>   <span class="cf">return</span> PMS_SKIP_MODERATE<span class="op">;</span>   <span class="co">// 4</span></span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>pm25 <span class="op">&lt;</span> PM25_UNHEALTHY<span class="op">)</span>  <span class="cf">return</span> PMS_SKIP_UNHEALTHY<span class="op">;</span>  <span class="co">// 2</span></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> PMS_SKIP_BAD<span class="op">;</span>                                     <span class="co">// 1</span></span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> shouldMeasurePMS<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>lastPM2_5 <span class="op">==</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> lastPM10 <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span>  <span class="co">// Pierwszy boot</span></span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="op">(</span>pmsSkipCounter <span class="op">&gt;</span> <span class="dv">0</span><span class="op">)</span> pmsSkipCounter<span class="op">--;</span></span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="op">(</span>pmsSkipCounter <span class="op">==</span> <span class="dv">0</span><span class="op">);</span></span>
+<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a><span class="co">// ============================================</span></span>
+<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a><span class="co">// SETUP - Rozgałęzienie wg przyczyny wybudzenia</span></span>
+<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a><span class="co">// ============================================</span></span>
+<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setup<span class="op">()</span> <span class="op">{</span></span>
+<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>    setupPowerControl<span class="op">();</span></span>
+<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>    setupBuzzer<span class="op">();</span></span>
+<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>    setupLoRa<span class="op">();</span></span>
+<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a>    <span class="dt">esp_sleep_wakeup_cause_t</span> wakeup <span class="op">=</span> esp_sleep_get_wakeup_cause<span class="op">();</span></span>
+<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">switch</span> <span class="op">(</span>wakeup<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> ESP_SLEEP_WAKEUP_EXT0<span class="op">:</span>   <span class="co">// BUTTON</span></span>
+<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a>            handleButtonWakeup<span class="op">();</span></span>
+<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> ESP_SLEEP_WAKEUP_TIMER<span class="op">:</span>  <span class="co">// TIMER (co 15 min)</span></span>
+<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> <span class="op">(</span>shouldMeasurePMS<span class="op">())</span> <span class="op">{</span></span>
+<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>                performFullMeasurement<span class="op">();</span></span>
+<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
+<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a>                performQuickMeasurement<span class="op">();</span></span>
+<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a>            <span class="op">}</span></span>
+<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a>        <span class="cf">default</span><span class="op">:</span>                       <span class="co">// POWER ON</span></span>
+<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a>            pmsSkipCounter <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a>            performFullMeasurement<span class="op">();</span></span>
+<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span><span class="op">;</span></span>
+<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<h3
+id="pobór-prądu---szczegółowa-analiza-v1.4-z-optymalizacją-cpu">Pobór
+Prądu - Szczegółowa Analiza (v1.4 z optymalizacją CPU)</h3>
+<table>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 28%" />
+<col style="width: 34%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th>Komponent</th>
+<th>Tryb aktywny</th>
+<th>Odcięty (Q OFF)</th>
+<th>Uwagi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ESP32-S3 @ 80MHz</td>
+<td><strong>10mA</strong></td>
+<td>-</td>
+<td>Zoptymalizowane (było 25mA @ 240MHz)</td>
+</tr>
+<tr>
+<td>ESP32-S3 deep sleep</td>
+<td>10μA</td>
+<td>-</td>
+<td>RTC Fast Mem OFF</td>
+</tr>
+<tr>
+<td>PMS7003 + Pololu</td>
+<td>102mA</td>
+<td><strong>0mA</strong></td>
+<td>Q1 odcina GND</td>
+</tr>
+<tr>
+<td>SHTC3 + BMP280</td>
+<td>1mA</td>
+<td><strong>0mA</strong></td>
+<td>Q2 odcina GND</td>
+</tr>
+<tr>
+<td>OLED SSD1306</td>
+<td>20mA</td>
+<td><strong>0mA</strong></td>
+<td>Q2 odcina GND</td>
+</tr>
+<tr>
+<td>SX1262 TX</td>
+<td>120mA</td>
+<td>1μA</td>
+<td>Krótki burst</td>
+</tr>
+<tr>
+<td>SX1262 standby</td>
+<td>2mA</td>
+<td>-</td>
+<td>Podczas pracy</td>
+</tr>
+</tbody>
+</table>
+<h3
+id="zużycie-energii---quick-vs-full-measurement-v1.4-cpu-80mhz">Zużycie
+Energii - Quick vs Full Measurement (v1.4 + CPU 80MHz)</h3>
+<pre><code>FULL MEASUREMENT (z PMS7003):
+=============================
+Prąd podczas rozgrzewki: ESP(10) + PMS+Pololu(102) + I2C(1) + OLED(20) + LoRa_stby(2) = 135mA
+Prąd podczas wyświetlania: ESP(10) + I2C(1) + OLED(20) + LoRa_stby(2) = 33mA
+Prąd podczas TX LoRa: ESP(10) + OLED(20) + LoRa_TX(120) = 150mA
+
+1. Startup + init (2s):          2s × 12mA  = 0.007 mAh
+2. Rozgrzewka PMS (30s):        30s × 135mA = 1.125 mAh
+3. Pomiar I2C + PMS (1s):        1s × 135mA = 0.038 mAh
+4. Wyświetlanie OLED (22s):     22s × 33mA  = 0.202 mAh
+5. Transmisja LoRa (0.1s):     0.1s × 150mA = 0.004 mAh
+6. Shutdown (0.5s):            0.5s × 10mA  = 0.001 mAh
+                                -----------------------
+                          SUMA FULL: ~1.38 mAh (~56s)
+
+QUICK MEASUREMENT (bez PMS7003):
+================================
+Prąd podczas pomiaru: ESP(10) + I2C(1) + OLED(20) + LoRa_stby(2) = 33mA
+
+1. Startup + init (2s):          2s × 12mA  = 0.007 mAh
+2. Pomiar I2C (1s):              1s × 33mA  = 0.009 mAh
+3. Wyświetlanie OLED (22s):     22s × 33mA  = 0.202 mAh
+4. Transmisja LoRa (0.1s):     0.1s × 150mA = 0.004 mAh
+5. Shutdown (0.5s):            0.5s × 10mA  = 0.001 mAh
+                                -----------------------
+                          SUMA QUICK: ~0.22 mAh (~26s)
+
+PORÓWNANIE Z POPRZEDNIĄ WERSJĄ (CPU 240MHz):
+- Full:  było 1.68 mAh → jest 1.38 mAh (oszczędność 18%)
+- Quick: było 0.34 mAh → jest 0.22 mAh (oszczędność 35%)</code></pre>
+<h3
+id="szacowany-czas-pracy-baterii-4000mah-v1.4-optymalizacje">Szacowany
+Czas Pracy Baterii 4000mAh (v1.4 + optymalizacje)</h3>
+<pre><code>ARCHITEKTURA v1.4: Stały interwał 15min, adaptacyjny pomiar PMS, CPU 80MHz
+==========================================================================
+
+Założenia:
+- Bateria: 4000mAh (użyteczne ~3600mAh z 90% DOD)
+- Full measurement: ~1.38 mAh (z PMS)
+- Quick measurement: ~0.22 mAh (bez PMS)
+- Deep sleep (15min): 0.0025 mAh (10μA × 0.25h)
+- Wybudzenia dziennie: 96 (24h ÷ 15min)
+
+POWIETRZE CZYSTE (PM &lt; 15 µg/m³) - PMS co 8 cykli = 2h:
+-------------------------------------------------------
+Full: 12×/dzień, Quick: 84×/dzień
+Zużycie: (12 × 1.38) + (84 × 0.22) + (96 × 0.0025) = 35.3 mAh/dzień
+Czas pracy: 3600 / 35.3 = 102 dni = ~3.4 miesiąca
+
+POWIETRZE UMIARKOWANE (PM 15-35 µg/m³) - PMS co 4 cykle = 1h:
+-------------------------------------------------------------
+Full: 24×/dzień, Quick: 72×/dzień
+Zużycie: (24 × 1.38) + (72 × 0.22) + (96 × 0.0025) = 49.2 mAh/dzień
+Czas pracy: 3600 / 49.2 = 73 dni = ~2.4 miesiące
+
+POWIETRZE NIEZDROWE (PM 35-75 µg/m³) - PMS co 2 cykle = 30min:
+--------------------------------------------------------------
+Full: 48×/dzień, Quick: 48×/dzień
+Zużycie: (48 × 1.38) + (48 × 0.22) + (96 × 0.0025) = 77.1 mAh/dzień
+Czas pracy: 3600 / 77.1 = 47 dni = ~1.6 miesiąca
+
+POWIETRZE ZŁE (PM &gt; 75 µg/m³) - PMS każdy cykl = 15min:
+-------------------------------------------------------
+Full: 96×/dzień, Quick: 0×/dzień
+Zużycie: (96 × 1.38) + (0 × 0.22) + (96 × 0.0025) = 132.7 mAh/dzień
+Czas pracy: 3600 / 132.7 = 27 dni = ~0.9 miesiąca</code></pre>
+<h3
+id="podsumowanie-czasu-pracy-baterii-v1.4-optymalizacje">Podsumowanie
+Czasu Pracy Baterii (v1.4 + optymalizacje)</h3>
+<table>
+<thead>
+<tr>
+<th>Jakość powietrza</th>
+<th>Pomiar PMS</th>
+<th>Full/Quick dziennie</th>
+<th>Czas pracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dobra</strong> (PM&lt;15)</td>
+<td>co 2h</td>
+<td>12F + 84Q</td>
+<td><strong>~3.4 miesiąca</strong></td>
+</tr>
+<tr>
+<td><strong>Umiarkowana</strong> (PM 15-35)</td>
+<td>co 1h</td>
+<td>24F + 72Q</td>
+<td><strong>~2.4 miesiące</strong></td>
+</tr>
+<tr>
+<td><strong>Niezdrowa</strong> (PM 35-75)</td>
+<td>co 30min</td>
+<td>48F + 48Q</td>
+<td><strong>~1.6 miesiąca</strong></td>
+</tr>
+<tr>
+<td><strong>Zła</strong> (PM&gt;75)</td>
+<td>co 15min</td>
+<td>96F + 0Q</td>
+<td><strong>~1 miesiąc</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>UWAGA v1.4 z optymalizacjami:</strong> - CPU 80MHz (zamiast
+240MHz) oszczędza ~15-35% energii - RTC Fast Memory OFF oszczędza ~4µA w
+deep sleep - W typowych warunkach domowych (czyste powietrze):
+<strong>~3-4 miesiące</strong> - Przy zanieczyszczonym powietrzu:
+<strong>~1-2 miesiące</strong></p>
+</blockquote>
+<hr />
+<h2 id="adresy-i2c">Adresy I2C</h2>
+<table>
+<thead>
+<tr>
+<th>Urządzenie</th>
+<th>Adres domyślny</th>
+<th>Adres alternatywny</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SHTC3</td>
+<td>0x70</td>
+<td>- (stały)</td>
+</tr>
+<tr>
+<td>BMP280</td>
+<td>0x77</td>
+<td>0x76 (SDO-&gt;GND)</td>
+</tr>
+<tr>
+<td>OLED SSD1306</td>
+<td>0x3C</td>
+<td>0x3D (zależy od modułu)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Skan I2C</strong> - kod do weryfikacji adresów znajduje się w
+sekcji oprogramowania.</p>
+<hr />
+<h2 id="połączenia-pms7003-adapter-idc-microusb-z-ch340g">Połączenia
+PMS7003 (Adapter IDC-microUSB z CH340G)</h2>
+<h3 id="opis-adaptera">Opis Adaptera</h3>
+<p>Adapter IDC 10pin 1,27mm - microUSB dla czujnika PMS7003 (Botland
+DNG-13445): - Konwertuje złącze IDC 10pin czujnika PMS7003 na wygodne
+piny i microUSB - Wbudowany układ <strong>CH340G</strong> (konwerter
+UART&lt;-&gt;USB) - Gniazdo <strong>microUSB</strong> - może służyć do
+zasilania 5V lub komunikacji z PC - Wyprowadzenia goldpin: <strong>5V,
+GND, RX, TX</strong></p>
+<p><strong>Link:</strong>
+https://botland.com.pl/czujniki-czystosci-powietrza/13445-adapter-idc-10pin-127mm-microusb-dla-czujnika-pms7003-5904422372293.html</p>
+<h3 id="pinout-adaptera-pms7003-goldpiny">Pinout Adaptera PMS7003
+(goldpiny)</h3>
+<pre><code>┌───────────────────────────────────────┐
+│     ADAPTER PMS7003 (CH340G)          │
+│                                       │
+│  ┌───────────────────────────────┐    │
+│  │      Gniazdo microUSB         │    │  ◀── Zasilanie 5V lub USB do PC
+│  └───────────────────────────────┘    │
+│                                       │
+│        [5V] [GND] [RX] [TX]           │  ◀── Goldpiny do wlutowania
+│                                       │
+│  ┌───────────────────────────────┐    │
+│  │   Złącze IDC 10pin 1,27mm     │    │  ◀── Do PMS7003
+│  └───────────────────────────────┘    │
+│                                       │
+└───────────────────────────────────────┘</code></pre>
+<h3 id="połączenia-adaptera-z-xiao-przez-goldpiny">Połączenia Adaptera z
+XIAO (przez goldpiny)</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 20%" />
+<col style="width: 31%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr>
+<th>Pin Adaptera</th>
+<th>Funkcja</th>
+<th>Podłączyć do</th>
+<th>Uwagi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>5V</strong></td>
+<td>Zasilanie 5V</td>
+<td>Pololu VOUT (5V)</td>
+<td>Zasilanie czujnika</td>
+</tr>
+<tr>
+<td><strong>GND</strong></td>
+<td>Masa</td>
+<td><strong>Q1 Drain</strong></td>
+<td>Przez MOSFET! (low-side)</td>
+</tr>
+<tr>
+<td><strong>RX</strong></td>
+<td>UART RX (wejście adaptera)</td>
+<td>XIAO D6 (GPIO43/TX)</td>
+<td>TX XIAO -&gt; RX adaptera</td>
+</tr>
+<tr>
+<td><strong>TX</strong></td>
+<td>UART TX (wyjście adaptera)</td>
+<td>XIAO D7 (GPIO44/RX)</td>
+<td>TX adaptera -&gt; RX XIAO</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ważne-nie-używać-microusb-do-zasilania">WAŻNE: Nie używać
+microUSB do zasilania!</h3>
+<blockquote>
+<p><strong>W tym projekcie NIE używamy gniazda microUSB
+adaptera!</strong></p>
+<p>Zasilanie 5V dostarczamy przez pin <strong>5V</strong> z przetwornicy
+Pololu. Masę (GND) prowadzimy przez MOSFET Q1 (low-side switching).</p>
+<p>Gniazdo microUSB można użyć tylko do testowania z komputerem PC
+(wtedy adapter działa jako konwerter USB-UART).</p>
+</blockquote>
+<h3 id="stary-pinout-idc-dla-referencji">Stary pinout IDC (dla
+referencji)</h3>
+<pre><code>Oryginalny connector IDC 10pin PMS7003 (1.27mm):
+┌─────────────────────┐
+│ 1  2  3  4  5       │
+│ 6  7  8  9  10      │
+└─────────────────────┘
+
+Pin 1: VCC (5V)
+Pin 2: GND
+Pin 3: SET (sterowanie sleep, HIGH=praca, LOW=sleep)
+Pin 4: RX (wejście UART, 3.3V TTL)
+Pin 5: TX (wyjście UART, 3.3V TTL)
+Pin 6: RESET (aktywny LOW)
+Pin 7-10: NC/GND
+
+Adapter wyprowadza tylko: 5V, GND, RX, TX (piny SET i RESET niedostępne)</code></pre>
+<h3 id="połączenia-przetwornicy-pololu-s7v7f5">Połączenia Przetwornicy
+Pololu S7V7F5</h3>
+<table>
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 20%" />
+<col style="width: 34%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th>Pololu Pin</th>
+<th>Funkcja</th>
+<th>Podłączony do</th>
+<th>Uwagi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VIN</td>
+<td>Wejście 2.7-11.8V</td>
+<td>Akumulator BAT+ (3.7V)</td>
+<td>Bezpośrednio do baterii</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>Masa</td>
+<td><strong>Q1 Drain</strong></td>
+<td><strong>PRZEZ MOSFET!</strong></td>
+</tr>
+<tr>
+<td>VOUT</td>
+<td>Wyjście 5V</td>
+<td>PMS7003 VCC (adapter 5V pin)</td>
+<td>Zasilanie czujnika</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>WAŻNA ZMIANA:</strong> GND Pololu idzie przez Q1 (nie
+bezpośrednio do masy!) Dzięki temu wyłączenie Q1 całkowicie odcina
+przetwornicę i eliminuje pobór prądu jałowego (~2mA).</p>
+</blockquote>
+<p><strong>Pinout Pololu S7V7F5:</strong></p>
+<pre><code>┌─────────────────────┐
+│     POLOLU S7V7F5   │
+│                     │
+│  [VIN] [GND] [VOUT] │
+│    │     │     │    │
+│    │     │     └──▶ 5V do PMS7003 VCC
+│    │     │
+│    │     └────────▶ Q1 Drain (PRZEZ MOSFET!)
+│    │
+│    └──────────────▶ BAT+ (bezpośrednio)
+└─────────────────────┘</code></pre>
+<hr />
+<h2 id="lista-połączeń-instrukcja-montażu">Lista Połączeń (Instrukcja
+Montażu)</h2>
+<h3 id="zasilanie-główne">1. ZASILANIE GŁÓWNE</h3>
+<table>
+<thead>
+<tr>
+<th>Z</th>
+<th>Do</th>
+<th>Uwagi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Akumulator (+)</td>
+<td>XIAO BAT+</td>
+<td>Zasilanie główne</td>
+</tr>
+<tr>
+<td>Akumulator (-)</td>
+<td>GND główna</td>
+<td>Masa główna</td>
+</tr>
+<tr>
+<td>Akumulator (+)</td>
+<td>Pololu VIN</td>
+<td>Zasilanie przetwornicy</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>UWAGA:</strong> GND Pololu NIE idzie bezpośrednio do masy -
+idzie przez Q1!</p>
+</blockquote>
+<h3 id="mosfet-q1-irlz44n---sterowanie-linii-5v-pololu-pms7003">2.
+MOSFET Q1 (IRLZ44N) - sterowanie linii 5V (Pololu + PMS7003)</h3>
+<table>
+<thead>
+<tr>
+<th>Pin IRLZ44N</th>
+<th>Podłączyć do</th>
+<th>Uwagi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G (Gate)</td>
+<td>XIAO D1 (GPIO2)</td>
+<td>Sterowanie</td>
+</tr>
+<tr>
+<td>G (Gate)</td>
+<td>Rezystor 10k -&gt; GND</td>
+<td>Pull-down (domyślnie OFF)</td>
+</tr>
+<tr>
+<td>D (Drain)</td>
+<td>Pololu GND + PMS7003 GND</td>
+<td><strong>WSPÓLNIE!</strong></td>
+</tr>
+<tr>
+<td>S (Source)</td>
+<td>GND główna</td>
+<td>Masa systemu</td>
+</tr>
+</tbody>
+</table>
+<pre><code>Schemat połączeń Q1:
+
+   Pololu GND ────┐
+                  │
+   PMS7003 GND ───┴───▶ Q1 Drain
+                            │
+          GPIO2 (D1) ───────┼───▶ Q1 Gate
+                  │
+                [10k]
+                  │
+                 GND
+
+                            Q1 Source ───▶ GND główna</code></pre>
+<h3 id="mosfet-q2-irlz44n---sterowanie-czujników-i2c">3. MOSFET Q2
+(IRLZ44N) - sterowanie czujników I2C</h3>
+<table>
+<thead>
+<tr>
+<th>Pin IRLZ44N</th>
+<th>Podłączyć do</th>
+<th>Uwagi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>G (Gate)</td>
+<td>XIAO D2 (GPIO3)</td>
+<td>Sterowanie</td>
+</tr>
+<tr>
+<td>G (Gate)</td>
+<td>Rezystor 10k -&gt; GND</td>
+<td>Pull-down (domyślnie OFF)</td>
+</tr>
+<tr>
+<td>D (Drain)</td>
+<td>GND: SHTC3, BMP280, OLED</td>
+<td>Wspólna masa czujników</td>
+</tr>
+<tr>
+<td>S (Source)</td>
+<td>GND główna</td>
+<td>Masa systemu</td>
+</tr>
+</tbody>
+</table>
+<pre><code>Schemat połączeń Q2:
+
+   SHTC3 GND ─────┐
+                  │
+   BMP280 GND ────┼───▶ Q2 Drain
+                  │
+   OLED GND ──────┘
+                            │
+          GPIO3 (D2) ───────┼───▶ Q2 Gate
+                  │
+                [10k]
+                  │
+                 GND
+
+                            Q2 Source ───▶ GND główna</code></pre>
+<h3 id="przetwornica-pololu-s7v7f5">4. PRZETWORNICA POLOLU S7V7F5</h3>
+<table>
+<thead>
+<tr>
+<th>Pin Pololu</th>
+<th>Podłączyć do</th>
+<th>Uwagi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VIN</td>
+<td>Akumulator BAT+</td>
+<td>Bezpośrednio!</td>
+</tr>
+<tr>
+<td>GND</td>
+<td><strong>Q1 Drain</strong></td>
+<td><strong>PRZEZ MOSFET!</strong></td>
+</tr>
+<tr>
+<td>VOUT</td>
+<td>PMS7003 VCC (adapter pin 5V)</td>
+<td>Zasilanie 5V</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pms7003-czujnik-pyłu---przez-adapter-idc-microusb">5. PMS7003
+(czujnik pyłu) - przez adapter IDC-microUSB</h3>
+<table>
+<thead>
+<tr>
+<th>Pin Adaptera</th>
+<th>Podłączyć do</th>
+<th>Uwagi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5V</td>
+<td>Pololu VOUT</td>
+<td>Zasilanie 5V</td>
+</tr>
+<tr>
+<td>GND</td>
+<td><strong>Q1 Drain</strong></td>
+<td><strong>PRZEZ MOSFET!</strong></td>
+</tr>
+<tr>
+<td>RX</td>
+<td>XIAO D6 (GPIO43/TX)</td>
+<td>UART TX-&gt;RX</td>
+</tr>
+<tr>
+<td>TX</td>
+<td>XIAO D7 (GPIO44/RX)</td>
+<td>UART RX&lt;-TX</td>
+</tr>
+</tbody>
+</table>
+<h3 id="magistrala-i2c-wspólna-dla-3-urządzeń">6. MAGISTRALA I2C
+(wspólna dla 3 urządzeń)</h3>
+<table>
+<thead>
+<tr>
+<th>Sygnał</th>
+<th>XIAO Pin</th>
+<th>SHTC3</th>
+<th>BMP280</th>
+<th>OLED</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SDA</td>
+<td>D4 (GPIO5)</td>
+<td>SDA</td>
+<td>SDA</td>
+<td>SDA</td>
+</tr>
+<tr>
+<td>SCL</td>
+<td>D5 (GPIO6)</td>
+<td>SCL</td>
+<td>SCL</td>
+<td>SCL</td>
+</tr>
+<tr>
+<td>VCC</td>
+<td>3V3</td>
+<td>VCC</td>
+<td>VCC</td>
+<td>VCC</td>
+</tr>
+<tr>
+<td>GND</td>
+<td><strong>Q2 Drain</strong></td>
+<td>GND</td>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table>
+<h3 id="buzzer">7. BUZZER</h3>
+<table>
+<thead>
+<tr>
+<th>Pin Buzzer</th>
+<th>Podłączyć do</th>
+<th>Uwagi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S (Signal)</td>
+<td>XIAO D0 (GPIO1)</td>
+<td>Sterowanie</td>
+</tr>
+<tr>
+<td>- (GND)</td>
+<td>GND główna</td>
+<td>Masa (bezpośrednio!)</td>
+</tr>
+<tr>
+<td>+ (VCC)</td>
+<td>XIAO 3V3</td>
+<td>Zasilanie</td>
+</tr>
+</tbody>
+</table>
+<h3 id="przycisk-wybudzenia">8. PRZYCISK WYBUDZENIA</h3>
+<table>
+<thead>
+<tr>
+<th>Przycisk</th>
+<th>Podłączyć do</th>
+<th>Uwagi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pin 1</td>
+<td>XIAO D3 (GPIO4)</td>
+<td>Wbudowany pull-up ESP32</td>
+</tr>
+<tr>
+<td>Pin 2</td>
+<td>GND główna</td>
+<td>Przycisk NO (normalnie otwarty)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Działanie:</strong> Naciśnięcie przycisku łączy GPIO4 z GND
+-&gt; wybudzenie z deep sleep -&gt; wyświetlenie danych na OLED.</p>
+<h3 id="podsumowanie-pinów-xiao">9. PODSUMOWANIE PINÓW XIAO</h3>
+<table>
+<thead>
+<tr>
+<th>Pin XIAO</th>
+<th>GPIO</th>
+<th>Funkcja</th>
+<th>Podłączone do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D0</td>
+<td>GPIO1</td>
+<td>BUZZER</td>
+<td>Buzzer S</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>GPIO2</td>
+<td>PWR_5V_EN</td>
+<td>Q1 Gate + 10k-&gt;GND</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>GPIO3</td>
+<td>PWR_3V3_EN</td>
+<td>Q2 Gate + 10k-&gt;GND</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>GPIO4</td>
+<td>BUTTON_WAKE</td>
+<td>Przycisk NO do GND</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>GPIO5</td>
+<td>I2C SDA</td>
+<td>SHTC3, BMP280, OLED</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>GPIO6</td>
+<td>I2C SCL</td>
+<td>SHTC3, BMP280, OLED</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>GPIO43</td>
+<td>UART TX</td>
+<td>PMS7003 RX</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>GPIO44</td>
+<td>UART RX</td>
+<td>PMS7003 TX</td>
+</tr>
+<tr>
+<td>3V3</td>
+<td>-</td>
+<td>3.3V</td>
+<td>Czujniki I2C VCC, Buzzer +</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>-</td>
+<td>GND</td>
+<td>Q1 Source, Q2 Source, Buzzer -, Przycisk</td>
+</tr>
+<tr>
+<td>BAT+</td>
+<td>-</td>
+<td>Bateria +</td>
+<td>Akumulator +, Pololu VIN</td>
+</tr>
+</tbody>
+</table>
+<h3 id="diagram-połączeń---widok-całościowy">10. DIAGRAM POŁĄCZEŃ -
+WIDOK CAŁOŚCIOWY</h3>
+<pre><code>                        AKUMULATOR 3.7V Li-Po
+                             (+)     (-)
+                              │       │
+              ┌───────────────┤       └────────────┐
+              │               │                    │
+              ▼               ▼                    ▼
+          XIAO BAT+      Pololu VIN           GND główna
+                              │                    │
+                         [przetwornica]            │
+                              │                    ├───▶ Q1 Source
+                         VOUT (5V)                 │
+                              │                    ├───▶ Q2 Source
+              ┌───────────────┤                    │
+              │               │                    ├───▶ Buzzer (-)
+              ▼               ▼                    │
+        PMS7003 VCC      Pololu GND                └───▶ XIAO GND
+              │               │
+        PMS7003 GND           │
+              │               │
+              └───────┬───────┘
+                      │
+                 Q1 DRAIN ◀──── D1 (GPIO2) + [10k pull-down]
+                      │
+                 Q1 SOURCE ───▶ GND główna
+
+
+              XIAO 3V3
+                  │
+     ┌────────────┼────────────┐
+     │            │            │
+     ▼            ▼            ▼
+ SHTC3 VCC   BMP280 VCC   OLED VCC
+     │            │            │
+ SHTC3 GND   BMP280 GND   OLED GND
+     │            │            │
+     └──────┬─────┴──────┬─────┘
+            │
+       Q2 DRAIN ◀──── D2 (GPIO3) + [10k pull-down]
+            │
+       Q2 SOURCE ───▶ GND główna</code></pre>
+<h3 id="checklist-przed-włączeniem">11. CHECKLIST PRZED WŁĄCZENIEM</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Brak zwarć między VCC a GND
+(multimetr - tryb ciągłości)</label></li>
+<li><label><input type="checkbox" />Q1 Gate ma rezystor 10k do
+GND</label></li>
+<li><label><input type="checkbox" />Q2 Gate ma rezystor 10k do
+GND</label></li>
+<li><label><input type="checkbox" />Pololu VIN podłączony do BAT+
+(bezpośrednio)</label></li>
+<li><label><input type="checkbox" /><strong>Pololu GND podłączony do Q1
+Drain (NIE do GND głównej!)</strong></label></li>
+<li><label><input type="checkbox" /><strong>PMS7003 GND podłączony do Q1
+Drain (NIE do GND głównej!)</strong></label></li>
+<li><label><input type="checkbox" />Czujniki I2C GND do Q2 Drain (nie do
+GND głównej!)</label></li>
+<li><label><input type="checkbox" />Q1 Source i Q2 Source do GND
+głównej</label></li>
+<li><label><input type="checkbox" />Buzzer (-) bezpośrednio do GND
+głównej</label></li>
+<li><label><input type="checkbox" />Przycisk podłączony między D3
+(GPIO4) a GND</label></li>
+<li><label><input type="checkbox" />Antena LoRa podłączona do
+SX1262</label></li>
+</ul>
+<hr />
+<h2 id="wymagane-biblioteki-arduino">Wymagane Biblioteki Arduino</h2>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Komunikacja LoRa</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;RadioLib.h&gt;</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Czujniki I2C</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Wire.h&gt;</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Adafruit_SHTC3.h&gt;</span><span class="pp">        </span><span class="co">// lub SensirionI2CShtc3</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Adafruit_BMP280.h&gt;</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Wyświetlacz OLED</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Adafruit_GFX.h&gt;</span></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Adafruit_SSD1306.h&gt;</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Czujnik pyłu (UART)</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="co">// Biblioteka PMS lub ręczna obsługa protokołu</span></span></code></pre></div>
+<hr />
+<h2 id="fazy-projektu">Fazy Projektu</h2>
+<h3 id="faza-1-koncepcja-i-planowanie-aktualna">Faza 1: Koncepcja i
+Planowanie (AKTUALNA) ✓</h3>
+<p><strong>Status:</strong> Zakończona</p>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="" />Lista komponentów
+hardware</label></li>
+<li><label><input type="checkbox" checked="" />Analiza kompatybilności
+napięć</label></li>
+<li><label><input type="checkbox" checked="" />Schemat
+połączeń</label></li>
+<li><label><input type="checkbox" checked="" />Analiza poboru
+prądu</label></li>
+</ul>
+<h3 id="faza-2-montaż-sprzętu">Faza 2: Montaż Sprzętu</h3>
+<p><strong>Cel:</strong> Połączenie wszystkich elementów na płytce
+uniwersalnej.</p>
+<p><strong>Zadania:</strong> - [ ] Przylutowanie goldpinów do XIAO - [ ]
+Montaż magistrali I2C (3.3V, GND, SDA, SCL) - [ ] Podłączenie czujników
+I2C - [ ] Podłączenie PMS7003 (UART + zasilanie 5V) - [ ] Podłączenie
+OLED - [ ] Podłączenie buzzera (bezpośrednio do GPIO) - [ ] Podłączenie
+akumulatora - [ ] Test ciągłości połączeń (multimetr)</p>
+<h3 id="faza-3-implementacja-oprogramowania">Faza 3: Implementacja
+Oprogramowania</h3>
+<p><strong>Baza kodu:</strong> <code>air_condition.ino</code> -
+działająca komunikacja SX1262</p>
+<p><strong>Zadania:</strong> - [ ] Test skanera I2C - [ ] Odczyt SHTC3
+(temperatura, wilgotność) - [ ] Odczyt BMP280 (ciśnienie, temperatura) -
+[ ] Odczyt PMS7003 (PM1.0, PM2.5, PM10) - [ ] Wyświetlanie danych na
+OLED - [ ] Integracja z komunikacją LoRa - [ ] Alarmy (buzzer przy
+przekroczeniu progów) - [ ] Tryby oszczędzania energii</p>
+<h3 id="faza-4-integracja-i-testy">Faza 4: Integracja i Testy</h3>
+<p><strong>Zadania:</strong> - [ ] Kalibracja czujników - [ ] Testy
+zasięgu LoRa - [ ] Optymalizacja zużycia energii - [ ] Testy
+długotrwałe</p>
+<hr />
+<h2 id="specyfikacja-techniczna">Specyfikacja Techniczna</h2>
+<h3 id="parametry-lora-aktualna-konfiguracja">Parametry LoRa (aktualna
+konfiguracja)</h3>
+<table>
+<thead>
+<tr>
+<th>Parametr</th>
+<th>Wartość</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Częstotliwość</td>
+<td>868.0 MHz</td>
+</tr>
+<tr>
+<td>Szerokość pasma (BW)</td>
+<td>125.0 kHz</td>
+</tr>
+<tr>
+<td>Spreading Factor (SF)</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Coding Rate (CR)</td>
+<td>5 (4/5)</td>
+</tr>
+<tr>
+<td>Sync Word</td>
+<td>0x34</td>
+</tr>
+<tr>
+<td>Moc nadawania</td>
+<td>14 dBm</td>
+</tr>
+<tr>
+<td>Preambuła</td>
+<td>8 symboli</td>
+</tr>
+</tbody>
+</table>
+<h3 id="zakresy-pomiarowe-czujników">Zakresy Pomiarowe Czujników</h3>
+<table>
+<thead>
+<tr>
+<th>Czujnik</th>
+<th>Parametr</th>
+<th>Zakres</th>
+<th>Dokładność</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SHTC3</td>
+<td>Temperatura</td>
+<td>-40°C do +125°C</td>
+<td>±0.2°C</td>
+</tr>
+<tr>
+<td>SHTC3</td>
+<td>Wilgotność</td>
+<td>0-100% RH</td>
+<td>±2% RH</td>
+</tr>
+<tr>
+<td>BMP280</td>
+<td>Ciśnienie</td>
+<td>300-1100 hPa</td>
+<td>±1 hPa</td>
+</tr>
+<tr>
+<td>BMP280</td>
+<td>Temperatura</td>
+<td>-40°C do +85°C</td>
+<td>±1°C</td>
+</tr>
+<tr>
+<td>PMS7003</td>
+<td>PM1.0/2.5/10</td>
+<td>0-500 μg/m³</td>
+<td>±10%</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="uwagi-i-ograniczenia">Uwagi i Ograniczenia</h2>
+<ol type="1">
+<li><strong>PMS7003 - rozgrzewka</strong>: Czujnik wymaga ~30 sekund
+rozgrzewki przed wiarygodnym pomiarem</li>
+<li><strong>PMS7003 - żywotność</strong>: Wentylator ma ograniczoną
+żywotność (~8000h), nie trzymać włączonego ciągle</li>
+<li><strong>PMS7003 - zasilanie</strong>: VCC z Pololu (5V), GND przez
+MOSFET Q1 (low-side switching)</li>
+<li><strong>I2C pull-up</strong>: Moduły DFRobot mają wbudowane
+rezystory pull-up, nie trzeba dodawać zewnętrznych</li>
+<li><strong>Bateria</strong>: XIAO ma wbudowany układ ładowania Li-Po
+(100mA), ładowanie przez USB-C</li>
+<li><strong>Antena LoRa</strong>: Niezbędna do prawidłowej pracy SX1262
+- podłączyć przed włączeniem!</li>
+<li><strong>Pololu S7V7F5</strong>: VIN do BAT+ (bezpośrednio),
+<strong>GND przez Q1</strong> - wyłączenie Q1 całkowicie odcina
+przetwornicę</li>
+<li><strong>MOSFETy IRLZ44N - logika</strong>: N-channel low-side:
+<strong>GPIO HIGH = urządzenie ON</strong>, GPIO LOW = OFF</li>
+<li><strong>Pull-down rezystory (10k)</strong>: Zapewniają domyślnie
+WYŁĄCZONE peryferia przy starcie/resecie ESP32</li>
+<li><strong>Deep Sleep</strong>: Przy wybudzeniu GPIO wracają do stanu
+domyślnego - pull-down utrzymuje OFF</li>
+<li><strong>“Pływająca masa”</strong>: Gdy MOSFET OFF, peryferia mają
+VCC ale nie GND - bezpieczne, nie działa</li>
+<li><strong>IRLZ44N obudowa TO-220</strong>: Duża (wymaga miejsca), ale
+łatwa do lutowania na płytce uniwersalnej</li>
+<li><strong>IRLZ44N parametry</strong>: V_GS(th)=1-2V,
+R_DS(on)=0.065ohm, I_D=47A - nadmiarowe, ale pewne</li>
+<li><strong>Eliminacja prądu jałowego Pololu</strong>: GND Pololu przez
+Q1 = 0mA w trybie sleep (zamiast ~2mA)</li>
+<li><strong>Przycisk wybudzenia (GPIO4)</strong>: Używa wbudowanego
+pull-up ESP32, normalnie otwarty do GND</li>
+<li><strong>Adaptacyjny pomiar PMS (v1.4)</strong>: Stały interwał
+wybudzenia 15min, pomiar PMS co N cykli zależnie od PM2.5</li>
+</ol>
+<hr />
+<h2 id="następne-kroki">Następne Kroki</h2>
+<ol type="1">
+<li><strong>Zakup brakujących elementów:</strong>
+<ul>
+<li>Pololu S7V7F5 - przetwornica 5V</li>
+<li>Rezystory 10kΩ (2 szt) - pull-down dla bramek MOSFET</li>
+<li>Przycisk tact switch - wybudzenie z deep sleep</li>
+<li><del>IRLZ44N N-MOSFET</del> - <strong>KUPIONY</strong> (5 szt)</li>
+</ul></li>
+<li><strong>Przygotowanie płytki uniwersalnej</strong> - zaplanowanie
+układu z MOSFETami TO-220</li>
+<li><strong>Lutowanie i montaż</strong> - zgodnie ze schematem low-side
+switching</li>
+<li><strong>Testy połączeń</strong> - przed podłączeniem zasilania
+sprawdzić multimetrem</li>
+<li><strong>Upload kodu testowego</strong> - skan I2C, test power
+switching</li>
+</ol>
+<hr />
+<h2 id="historia-zmian">Historia Zmian</h2>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Data</th>
+<th>Wersja</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2025-12-06</td>
+<td>0.1</td>
+<td>Utworzenie dokumentu, wstępna specyfikacja</td>
+</tr>
+<tr>
+<td>2025-12-06</td>
+<td>0.2</td>
+<td>Dodanie listy hardware, schematu połączeń, analizy kompatybilności i
+poboru prądu</td>
+</tr>
+<tr>
+<td>2025-12-06</td>
+<td>0.3</td>
+<td>Dodanie przetwornicy Pololu S7V7F5 - rozwiązanie problemu zasilania
+5V z baterii</td>
+</tr>
+<tr>
+<td>2025-12-06</td>
+<td>0.4</td>
+<td>Dodanie MOSFETów AO3401 do sterowania zasilaniem peryferiów, sekcja
+Power Management</td>
+</tr>
+<tr>
+<td>2025-12-06</td>
+<td>0.5</td>
+<td><strong>Zmiana MOSFET z AO3401 (P-ch) na IRLZ44N (N-ch
+logic-level)</strong> - low-side switching, odwrócona logika sterowania
+(HIGH=ON), zaktualizowane schematy i kod</td>
+</tr>
+<tr>
+<td>2025-12-06</td>
+<td>0.6</td>
+<td>Dodanie sekcji “Lista Połączeń (Instrukcja Montażu)” z checklistą
+przed włączeniem</td>
+</tr>
+<tr>
+<td>2025-12-06</td>
+<td>0.7</td>
+<td>Aktualizacja o adapter PMS7003 IDC-microUSB (CH340G) - pinout
+adaptera (5V/GND/RX/TX), połączenia przez goldpiny</td>
+</tr>
+<tr>
+<td>2025-12-06</td>
+<td>0.8</td>
+<td><strong>Buzzer: zmiana na moduł aktywny (zielony)</strong> -
+bezpośrednio do GPIO bez tranzystora, dodano link Botland</td>
+</tr>
+<tr>
+<td>2025-12-06</td>
+<td>0.9</td>
+<td>Dodanie sekcji “Kontekst dla Kolejnej Sesji” z pełnym podsumowaniem
+stanu projektu</td>
+</tr>
+<tr>
+<td>2025-12-30</td>
+<td>1.0</td>
+<td><strong>WAŻNA ZMIANA: GND Pololu przez Q1</strong> - eliminacja
+prądu jałowego przetwornicy (~2mA), zaktualizowane wszystkie schematy
+ASCII, poprawiona czytelność diagramów</td>
+</tr>
+<tr>
+<td>2025-12-30</td>
+<td>1.1</td>
+<td><strong>Adaptacyjny algorytm pomiarów</strong> - interwał zależny od
+PM2.5 (2h/1h/30min/15min), przycisk wybudzenia (GPIO4), usunięcie
+zduplikowanej sekcji poboru prądu, zaktualizowana sekcja kontekstu</td>
+</tr>
+<tr>
+<td>2025-12-30</td>
+<td>1.2</td>
+<td><strong>Przywrócenie znaków Unicode</strong> w schematach ASCII dla
+lepszej czytelności (┌┐└┘│─├┤┬┴▶◀▼)</td>
+</tr>
+<tr>
+<td>2025-12-31</td>
+<td>1.3</td>
+<td><strong>Implementacja air_condition.ino v1.4</strong> - Adaptacyjny
+Deep Sleep: stały interwał 15min, Quick vs Full measurement, zmienne
+RTC_DATA_ATTR, optymalizacja NVS</td>
+</tr>
+<tr>
+<td>2025-12-31</td>
+<td>1.4</td>
+<td><strong>Optymalizacje energetyczne</strong> - CPU 80MHz (oszczędność
+~15-35%), RTC Fast Memory OFF w deep sleep, zaktualizowane obliczenia
+czasu pracy baterii (3.4 miesiąca przy czystym powietrzu)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="kontekst-dla-kolejnej-sesji-session-handoff">Kontekst dla
+Kolejnej Sesji (Session Handoff)</h2>
+<blockquote>
+<p><strong>CEL:</strong> Ta sekcja zawiera wszystkie informacje
+niezbędne do kontynuacji pracy w nowej sesji AI. Przeczytaj tę sekcję na
+początku kolejnej sesji, aby szybko wdrożyć się w projekt.</p>
+</blockquote>
+<h3 id="status-projektu-2025-12-31">Status Projektu (2025-12-31)</h3>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 38%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>Faza</th>
+<th>Status</th>
+<th>Uwagi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Faza 1: Koncepcja</td>
+<td><strong>ZAKOŃCZONA</strong></td>
+<td>Dokumentacja kompletna</td>
+</tr>
+<tr>
+<td>Faza 2: Hardware</td>
+<td><strong>W TOKU</strong></td>
+<td>Czeka na zakup + montaż</td>
+</tr>
+<tr>
+<td>Faza 3: Software</td>
+<td><strong>ZAKOŃCZONA</strong></td>
+<td><code>air_condition.ino</code> v1.4 - pełna implementacja</td>
+</tr>
+<tr>
+<td>Faza 4: Testy</td>
+<td>DO REALIZACJI</td>
+<td>Wymaga zmontowanego hardware</td>
+</tr>
+</tbody>
+</table>
+<h3 id="co-jest-gotowe">Co Jest Gotowe</h3>
+<ol type="1">
+<li><strong>Dokumentacja techniczna</strong> - PROJECT.md v1.3 zawiera:
+<ul>
+<li>Kompletną listę BOM z linkami Botland</li>
+<li>Schematy połączeń (ASCII art)</li>
+<li>Architekturę zasilania z low-side switching (IRLZ44N)</li>
+<li><strong>Adaptacyjny pomiar PMS v1.4</strong> (stały interwał 15min,
+Quick vs Full)</li>
+<li><strong>Optymalizacje energii:</strong> CPU 80MHz, RTC Fast Mem
+OFF</li>
+<li>Analizę poboru prądu i żywotności baterii (3-4 miesiące)</li>
+<li>Instrukcję montażu z checklistą</li>
+</ul></li>
+<li><strong>Kod kompletny</strong> - <code>air_condition.ino</code> v1.4
+(~1870 linii):
+<ul>
+<li>Wszystkie czujniki: SHTC3, BMP280, PMS7003</li>
+<li>Wyświetlacz OLED (3 ekrany: Main/Details/History)</li>
+<li>Komunikacja LoRa (protokół binarny 23B)</li>
+<li><strong>Adaptacyjny Deep Sleep</strong> - Quick vs Full
+measurement</li>
+<li><strong>Optymalizacje energii:</strong> CPU 80MHz, RTC Fast Mem
+OFF</li>
+<li>Zapis historii do NVS (pamięć nieulotna)</li>
+<li>Alarmy buzzer przy PM2.5 &gt; 75 µg/m³</li>
+<li>Kompiluje się bez błędów (~430 KB flash)</li>
+</ul></li>
+<li><strong>Zakupione elementy:</strong>
+<ul>
+<li>XIAO ESP32-S3 Sense + Wio-SX1262 (B2B)</li>
+<li>SHTC3 (DFRobot SEN0414)</li>
+<li>BMP280 (DFRobot SEN0372)</li>
+<li>PMS7003 + adapter IDC-microUSB (CH340G)</li>
+<li>OLED 0.96” 128x64 I2C</li>
+<li>Akumulator Li-Po 4000mAh</li>
+<li>Moduł buzzera aktywnego (zielony)</li>
+<li><strong>IRLZ44N N-MOSFET</strong> (5 szt)</li>
+</ul></li>
+</ol>
+<h3 id="do-zakupu-pilne">Do Zakupu (PILNE)</h3>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 24%" />
+<col style="width: 20%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr>
+<th>Element</th>
+<th>Ilość</th>
+<th>Link</th>
+<th>Cena ~</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pololu S7V7F5</td>
+<td>1 szt</td>
+<td>https://botland.com.pl/przetwornice-step-updown-pololu/1696-pololu-s7v7f5-przetwornica-step-upstep-down-5v-1a-5904422359898.html</td>
+<td>~25 zł</td>
+</tr>
+<tr>
+<td>Rezystor 10k THT</td>
+<td>2 szt</td>
+<td>dowolny sklep</td>
+<td>~1 zł</td>
+</tr>
+<tr>
+<td>Przycisk tact switch</td>
+<td>1 szt</td>
+<td>dowolny sklep</td>
+<td>~1 zł</td>
+</tr>
+</tbody>
+</table>
+<h3 id="architektura-v1.4---adaptacyjny-deep-sleep">Architektura v1.4 -
+Adaptacyjny Deep Sleep</h3>
+<pre><code>NOWA ARCHITEKTURA (v1.4):
+=========================
+- Stały interwał wybudzenia: 15 MINUT
+- Adaptacyjny POMIAR PMS (nie interwał!) zależny od PM2.5:
+
+PM2.5 [µg/m³]     Jakość           PMS co N cykli    Efektywny interwał PM
+--------------------------------------------------------------------------------
+0 - 15            DOBRA            co 8 cykli        8 × 15min = 2h
+15 - 35           UMIARKOWANA      co 4 cykle        4 × 15min = 1h
+35 - 75           NIEZDROWA        co 2 cykle        2 × 15min = 30min
+&gt; 75              ZŁA              co każdy cykl     1 × 15min = 15min + ALARM!
+
+TYPY POMIARÓW:
+- QUICK: Tylko I2C (temp/wilg/ciśn) + ostatni PM z RTC + LoRa TX (~25s)
+- FULL:  I2C + PMS7003 (30s rozgrzewki) + LoRa TX + zapis historii (~57s)
+
+WYBUDZENIA:
+- TIMER (co 15min): Quick lub Full (adaptacyjnie wg shouldMeasurePMS())
+- BUTTON: Quick + restart cyklu 15min
+- POWER_ON: Full (zawsze)</code></pre>
+<h3 id="kluczowe-funkcje-w-kodzie-v1.4">Kluczowe Funkcje w Kodzie
+v1.4</h3>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Zmienne RTC (przeżywają deep sleep)</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>RTC_DATA_ATTR <span class="dt">uint16_t</span> lastPM1_0<span class="op">,</span> lastPM2_5<span class="op">,</span> lastPM10<span class="op">;</span>  <span class="co">// Ostatnie PM</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>RTC_DATA_ATTR <span class="dt">uint8_t</span> pmsSkipCounter<span class="op">;</span>                   <span class="co">// Licznik cykli</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>RTC_DATA_ATTR <span class="dt">uint8_t</span> loraSeqNum<span class="op">;</span>                       <span class="co">// Sekwencja LoRa</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>RTC_DATA_ATTR <span class="dt">bool</span> historyChanged<span class="op">;</span>                      <span class="co">// Flaga NVS</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Główne funkcje</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="dt">uint8_t</span> getPmsSkipCount<span class="op">(</span><span class="dt">uint16_t</span> pm25<span class="op">);</span>    <span class="co">// 8/4/2/1 zależnie od PM</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span> shouldMeasurePMS<span class="op">();</span>                    <span class="co">// Czy uruchomić PMS w tym cyklu</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> performQuickMeasurement<span class="op">();</span>             <span class="co">// Tylko I2C + LoRa</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> performFullMeasurement<span class="op">();</span>              <span class="co">// I2C + PMS + LoRa + historia</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> handleButtonWakeup<span class="op">();</span>                  <span class="co">// Quick + restart cyklu</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> displayPauseLoop<span class="op">(</span><span class="dt">int</span> cycles<span class="op">);</span>          <span class="co">// Wyświetlanie przed snem</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> prepareForDeepSleep<span class="op">(</span><span class="dt">bool</span> saveHistory<span class="op">);</span> <span class="co">// Optymalizacja NVS</span></span></code></pre></div>
+<h3 id="szacowany-czas-pracy-baterii-4000mah-v1.4">Szacowany Czas Pracy
+Baterii 4000mAh (v1.4)</h3>
+<table>
+<thead>
+<tr>
+<th>Jakość powietrza</th>
+<th>Pomiar PMS</th>
+<th>Full/Quick dziennie</th>
+<th>Czas pracy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Dobra</strong> (PM&lt;15)</td>
+<td>co 2h</td>
+<td>12F + 84Q</td>
+<td><strong>~2.7 miesiąca</strong></td>
+</tr>
+<tr>
+<td><strong>Umiarkowana</strong> (PM 15-35)</td>
+<td>co 1h</td>
+<td>24F + 72Q</td>
+<td><strong>~2 miesiące</strong></td>
+</tr>
+<tr>
+<td><strong>Niezdrowa</strong> (PM 35-75)</td>
+<td>co 30min</td>
+<td>48F + 48Q</td>
+<td><strong>~1.4 miesiąca</strong></td>
+</tr>
+<tr>
+<td><strong>Zła</strong> (PM&gt;75)</td>
+<td>co 15min</td>
+<td>96F + 0Q</td>
+<td><strong>~1 miesiąc</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>UWAGA:</strong> Quick measurement zużywa ~80% mniej energii
+niż Full!</p>
+</blockquote>
+<h3 id="pinout-xiao---szybka-ściąga">Pinout XIAO - Szybka Ściąga</h3>
+<pre><code>| Pin  | GPIO  | Funkcja      | Podłączone do              |
+|------|-------|--------------|----------------------------|
+| D0   | GPIO1 | BUZZER       | Buzzer S (bezpośrednio)    |
+| D1   | GPIO2 | PWR_5V_EN    | Q1 Gate + 10k-&gt;GND         |
+| D2   | GPIO3 | PWR_3V3_EN   | Q2 Gate + 10k-&gt;GND         |
+| D3   | GPIO4 | BUTTON_WAKE  | Przycisk NO do GND         |
+| D4   | GPIO5 | I2C SDA      | SHTC3, BMP280, OLED        |
+| D5   | GPIO6 | I2C SCL      | SHTC3, BMP280, OLED        |
+| D6   | GPIO43| UART TX      | PMS7003 RX (adapter)       |
+| D7   | GPIO44| UART RX      | PMS7003 TX (adapter)       |</code></pre>
+<h3 id="schemat-zasilania---szybki-podgląd">Schemat Zasilania - Szybki
+Podgląd</h3>
+<pre><code>AKUMULATOR 3.7V
+    │
+    ├───▶ XIAO BAT+
+    │
+    ├───▶ Pololu VIN (bezpośrednio!)
+    │
+    └───▶ GND główna ──┬───▶ XIAO GND
+                       │
+                       ├───▶ Q1 Source
+                       │
+                       ├───▶ Q2 Source
+                       │
+                       ├───▶ Buzzer (-)
+                       │
+                       └───▶ Przycisk (pin 2)
+
+Q1 (GPIO2): Pololu GND + PMS7003 GND ───▶ Q1 Drain
+
+Q2 (GPIO3): SHTC3 GND + BMP280 GND + OLED GND ───▶ Q2 Drain</code></pre>
+<h3 id="adresy-i2c-1">Adresy I2C</h3>
+<table>
+<thead>
+<tr>
+<th>Urządzenie</th>
+<th>Adres</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SHTC3</td>
+<td>0x70</td>
+</tr>
+<tr>
+<td>BMP280</td>
+<td>0x77</td>
+</tr>
+<tr>
+<td>OLED SSD1306</td>
+<td>0x3C</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kolejne-kroki-w-kolejności">Kolejne Kroki (w kolejności)</h3>
+<h4 id="etap-a-zakup-przed-montażem">ETAP A: Zakup (przed montażem)</h4>
+<ul class="task-list">
+<li><label><input type="checkbox" />Zamówić Pololu S7V7F5</label></li>
+<li><label><input type="checkbox" />Zamówić rezystory 10k (2 szt,
+THT)</label></li>
+<li><label><input type="checkbox" />Zamówić przycisk tact
+switch</label></li>
+</ul>
+<h4 id="etap-b-montaż-hardware">ETAP B: Montaż Hardware</h4>
+<ul class="task-list">
+<li><label><input type="checkbox" />Zaplanować układ na płytce
+uniwersalnej (MOSFETy TO-220 wymagają miejsca)</label></li>
+<li><label><input type="checkbox" />Przylutować goldpiny do
+XIAO</label></li>
+<li><label><input type="checkbox" />Zmontować sekcję zasilania (Pololu +
+Q1)</label></li>
+<li><label><input type="checkbox" /><strong>Pololu GND do Q1 Drain (NIE
+do masy głównej!)</strong></label></li>
+<li><label><input type="checkbox" />Zmontować sekcję I2C (Q2 + czujniki
++ OLED)</label></li>
+<li><label><input type="checkbox" />Podłączyć PMS7003 przez adapter (GND
+do Q1 Drain!)</label></li>
+<li><label><input type="checkbox" />Podłączyć buzzer</label></li>
+<li><label><input type="checkbox" />Podłączyć przycisk (D3/GPIO4 do
+GND)</label></li>
+<li><label><input type="checkbox" /><strong>TEST MULTIMETREM</strong>
+przed włączeniem (checklist w sekcji 11)</label></li>
+</ul>
+<h4 id="etap-c-testy-hardware">ETAP C: Testy Hardware</h4>
+<ul class="task-list">
+<li><label><input type="checkbox" />Upload
+<code>air_condition.ino</code> v1.4</label></li>
+<li><label><input type="checkbox" />Weryfikacja odczytów czujników na
+Serial Monitor</label></li>
+<li><label><input type="checkbox" />Test wyświetlania na OLED (3
+ekrany)</label></li>
+<li><label><input type="checkbox" />Test alarmu buzzer (PM2.5 &gt;
+75)</label></li>
+<li><label><input type="checkbox" />Test power switching (Q1, Q2) -
+pomiar prądu</label></li>
+<li><label><input type="checkbox" />Test deep sleep (obserwacja poboru
+prądu)</label></li>
+<li><label><input type="checkbox" />Test wybudzenia
+przyciskiem</label></li>
+<li><label><input type="checkbox" />Test komunikacji LoRa z
+odbiornikiem</label></li>
+</ul>
+<h3 id="kompilacja">Kompilacja</h3>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ex">arduino-cli</span> compile <span class="at">--fqbn</span> esp32:esp32:XIAO_ESP32S3 air_condition</span></code></pre></div>
+<h3 id="znane-problemy-uwagi">Znane Problemy / Uwagi</h3>
+<ol type="1">
+<li><strong>PMS7003 rozgrzewka</strong> - 30 sekund przed wiarygodnym
+pomiarem</li>
+<li><strong>PMS7003 żywotność</strong> - ~8000h wentylatora, nie włączać
+ciągle</li>
+<li><strong>Antena LoRa</strong> - ZAWSZE podłączyć przed włączeniem
+zasilania!</li>
+<li><strong>IRLZ44N TO-220</strong> - duże, zaplanować miejsce na
+płytce</li>
+<li><strong>Adapter PMS7003</strong> - goldpiny mogą wymagać
+wlutowania</li>
+<li><strong>Pololu GND</strong> - MUSI iść przez Q1, nie bezpośrednio do
+masy!</li>
+<li><strong>Przycisk</strong> - używa wbudowanego pull-up ESP32,
+normalnie otwarty</li>
+<li><strong>RTC memory</strong> - zmienne RTC_DATA_ATTR przeżywają deep
+sleep, ale NIE reset/power cycle</li>
+</ol>
+<h3 id="pliki-projektu">Pliki Projektu</h3>
+<pre><code>air_condition/
+├── PROJECT.md          # Ta dokumentacja (v1.3)
+├── PROJECT.pdf         # Export PDF
+└── air_condition.ino   # Kod v1.4 - pełna implementacja (~1850 linii)</code></pre>
+<hr />
+<p><strong>Koniec sekcji kontekstu. Powodzenia w kolejnej
+sesji!</strong></p>
+</body>
+</html>

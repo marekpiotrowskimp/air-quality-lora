@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Air Condition Receiver</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="-" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Air Condition Receiver</h1>
+</header>
+<h1
+id="projekt-air-condition-receiver---odbiornik-z-ekranem-dotykowym">Projekt:
+Air Condition Receiver - Odbiornik z Ekranem Dotykowym</h1>
+<h2 id="opis-ogólny">Opis Ogólny</h2>
+<p>Odbiornik danych z czujników jakości powietrza z komunikacją LoRa
+(SX1262). Urządzenie odbiera dane z wielu nadajników (max 4), wyświetla
+je na kolorowym ekranie dotykowym LCD 2.8” i rozsyła przez WiFi (UDP) do
+innych urządzeń (Raspberry Pi, iOS).</p>
+<p><strong>Kluczowe funkcje:</strong> - Odbiór danych LoRa z wielu
+nadajników (identyfikacja po MAC) - Kolorowy interfejs dotykowy
+320×240px (landscape) - Kafelki z podglądem danych każdego nadajnika -
+Szczegółowy widok z wykresem historii PM2.5 (24h) - Edycja nazw
+nadajników przez klawiaturę ekranową - Konfiguracja WiFi przez dotyk -
+Broadcast UDP z danymi JSON co 10 sekund - Alarmy wizualne (kolor
+kafelka przy przekroczeniu progów PM) - Wyświetlanie aktualnego czasu
+(NTP)</p>
+<hr />
+<h2 id="lista-komponentów-bom">Lista Komponentów (BOM)</h2>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 26%" />
+<col style="width: 20%" />
+<col style="width: 23%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th>#</th>
+<th>Element</th>
+<th>Model</th>
+<th>Status</th>
+<th>Uwagi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>MCU</td>
+<td>XIAO ESP32-S3</td>
+<td><strong>KUPIONY</strong></td>
+<td>Główny kontroler</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Moduł LoRa</td>
+<td>Wio-SX1262 (B2B)</td>
+<td><strong>KUPIONY</strong></td>
+<td>Komunikacja radiowa 868MHz</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Wyświetlacz</td>
+<td>Waveshare Pico-ResTouch-LCD-2.8”</td>
+<td><strong>KUPIONY</strong></td>
+<td>320×240, ST7789V, XPT2046</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Przewody</td>
+<td>Dupont F-F lub płytka uniwersalna</td>
+<td>DO PRZYGOTOWANIA</td>
+<td>10 połączeń</td>
+</tr>
+</tbody>
+</table>
+<h3 id="link-do-wyświetlacza">Link do Wyświetlacza</h3>
+<p><strong>Waveshare Pico-ResTouch-LCD-2.8”</strong> - Botland:
+https://botland.com.pl/raspberry-pi-pico-hat-klawiatury-i-wyswietlacze/19718-ekran-dotykowy-rezystancyjny-lcd-ips-28-320x240px-spi-65k-rgb-do-raspberry-pi-pico-waveshare-19804-5904422347246.html
+- Wiki: https://www.waveshare.com/wiki/Pico-ResTouch-LCD-2.8</p>
+<h3 id="specyfikacja-wyświetlacza">Specyfikacja Wyświetlacza</h3>
+<table>
+<thead>
+<tr>
+<th>Parametr</th>
+<th>Wartość</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rozdzielczość</td>
+<td>320 × 240 px</td>
+</tr>
+<tr>
+<td>Typ panelu</td>
+<td>IPS</td>
+</tr>
+<tr>
+<td>Kolory</td>
+<td>262K (RGB565)</td>
+</tr>
+<tr>
+<td>Kontroler LCD</td>
+<td>ST7789V</td>
+</tr>
+<tr>
+<td>Kontroler dotyku</td>
+<td>XPT2046 (rezystancyjny)</td>
+</tr>
+<tr>
+<td>Interfejs</td>
+<td>SPI</td>
+</tr>
+<tr>
+<td>Napięcie</td>
+<td>3.3V / 5V</td>
+</tr>
+<tr>
+<td>Wymiary</td>
+<td>70.2 × 50.2 mm</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="schemat-połączeń">Schemat Połączeń</h2>
+<h3 id="mapowanie-pinów-waveshare-lcd-pico-xiao-esp32-s3">Mapowanie
+Pinów: Waveshare LCD (Pico) → XIAO ESP32-S3</h3>
+<p>LCD Waveshare używa pinów Raspberry Pi Pico. Poniżej mapowanie na
+XIAO ESP32-S3:</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 15%" />
+<col style="width: 12%" />
+<col style="width: 13%" />
+<col style="width: 15%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr>
+<th>LCD Pin (PCB)</th>
+<th>Pico GPIO</th>
+<th>Funkcja</th>
+<th>XIAO Pin</th>
+<th>XIAO GPIO</th>
+<th>Kolor przewodu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VCC (VSYS)</td>
+<td>-</td>
+<td>Zasilanie 3.3V</td>
+<td><strong>3V3</strong></td>
+<td>-</td>
+<td>Czerwony</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>-</td>
+<td>Masa</td>
+<td><strong>GND</strong></td>
+<td>-</td>
+<td>Czarny</td>
+</tr>
+<tr>
+<td>LCD_DC</td>
+<td>GP8</td>
+<td>Data/Command</td>
+<td><strong>D1</strong></td>
+<td>GPIO2</td>
+<td>Żółty</td>
+</tr>
+<tr>
+<td>LCD_CS</td>
+<td>GP9</td>
+<td>LCD Chip Select</td>
+<td><strong>D0</strong></td>
+<td>GPIO1</td>
+<td>Pomarańczowy</td>
+</tr>
+<tr>
+<td>LCD_CLK</td>
+<td>GP10</td>
+<td>SPI Clock</td>
+<td><strong>D4</strong></td>
+<td>GPIO5</td>
+<td>Niebieski</td>
+</tr>
+<tr>
+<td>MOSI</td>
+<td>GP11</td>
+<td>SPI MOSI</td>
+<td><strong>D5</strong></td>
+<td>GPIO6</td>
+<td>Zielony</td>
+</tr>
+<tr>
+<td>MISO</td>
+<td>GP12</td>
+<td>SPI MISO</td>
+<td><strong>D7</strong></td>
+<td>GPIO44</td>
+<td>Biały</td>
+</tr>
+<tr>
+<td>LCD_BL</td>
+<td>GP13</td>
+<td>Backlight PWM</td>
+<td><strong>D3</strong></td>
+<td>GPIO4</td>
+<td>Fioletowy</td>
+</tr>
+<tr>
+<td>LCD_RST</td>
+<td>GP15</td>
+<td>LCD Reset</td>
+<td><strong>D2</strong></td>
+<td>GPIO3</td>
+<td>Szary</td>
+</tr>
+<tr>
+<td>TP_CS</td>
+<td>GP16</td>
+<td>Touch Chip Select</td>
+<td><strong>D6</strong></td>
+<td>GPIO43</td>
+<td>Brązowy</td>
+</tr>
+</tbody>
+</table>
+<h3 id="piny-nie-podłączane-sd-card---nieużywane">Piny NIE Podłączane
+(SD Card - nieużywane)</h3>
+<table>
+<thead>
+<tr>
+<th>LCD Pin</th>
+<th>Pico GPIO</th>
+<th>Powód</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TP_IRQ</td>
+<td>GP17</td>
+<td>Używamy polling zamiast interrupt</td>
+</tr>
+<tr>
+<td>SDIO_CLK</td>
+<td>GP5</td>
+<td>Karta SD nieużywana</td>
+</tr>
+<tr>
+<td>SDIO_CMD</td>
+<td>GP18</td>
+<td>Karta SD nieużywana</td>
+</tr>
+<tr>
+<td>D0-D3</td>
+<td>GP19-22</td>
+<td>Karta SD nieużywana</td>
+</tr>
+</tbody>
+</table>
+<h3 id="podsumowanie---lista-połączeń-10-przewodów">Podsumowanie - Lista
+Połączeń (10 przewodów)</h3>
+<pre><code>WAVESHARE LCD              XIAO ESP32-S3
+(pin na płytce)            (pin na płytce)
+───────────────────────────────────────────
+VCC  (VSYS, pin 2)    ───►  3V3 (pin 12)
+GND  (pin 3)          ───►  GND (pin 13)
+LCD_DC  (GP8)         ───►  D1  (pin 2)
+LCD_CS  (GP9)         ───►  D0  (pin 1)
+LCD_CLK (GP10)        ───►  D4  (pin 5)
+MOSI    (GP11)        ───►  D5  (pin 6)
+MISO    (GP12)        ───►  D7  (pin 8)
+LCD_BL  (GP13)        ───►  D3  (pin 4)
+LCD_RST (GP15)        ───►  D2  (pin 3)
+TP_CS   (GP16)        ───►  D6  (pin 7)</code></pre>
+<h3 id="wizualizacja-pinout---xiao-esp32-s3">Wizualizacja Pinout - XIAO
+ESP32-S3</h3>
+<pre><code>              XIAO ESP32-S3 (widok z góry)
+              ┌───────────────────┐
+   D0 (GPIO1) │ 1  ●         ● 14 │ 5V (nie używane)
+   D1 (GPIO2) │ 2  ●         ● 13 │ GND ◄── LCD GND
+   D2 (GPIO3) │ 3  ●         ● 12 │ 3V3 ◄── LCD VCC
+   D3 (GPIO4) │ 4  ●         ● 11 │ D10 ─┐
+   D4 (GPIO5) │ 5  ●         ● 10 │ D9  ├─ B2B SX1262
+   D5 (GPIO6) │ 6  ●         ●  9 │ D8  ─┘
+  D6 (GPIO43) │ 7  ●         ●  8 │ D7 (GPIO44)
+              └───────────────────┘
+                    [USB-C]
+
+PRZYPISANIE PINÓW LCD:
+Pin 1  (D0) ◄── LCD_CS      (Chip Select LCD)
+Pin 2  (D1) ◄── LCD_DC      (Data/Command)
+Pin 3  (D2) ◄── LCD_RST     (Reset)
+Pin 4  (D3) ◄── LCD_BL      (Backlight PWM)
+Pin 5  (D4) ◄── LCD_CLK     (SPI Clock)
+Pin 6  (D5) ◄── MOSI        (SPI Data Out)
+Pin 7  (D6) ◄── TP_CS       (Chip Select Touch)
+Pin 8  (D7) ◄── MISO        (SPI Data In - Touch)
+Pin 12 (3V3) ◄── VCC        (Zasilanie)
+Pin 13 (GND) ◄── GND        (Masa)
+
+PINY B2B (Wio-SX1262 - zajęte):
+GPIO7  = LORA_SCK
+GPIO8  = LORA_MISO
+GPIO9  = LORA_MOSI
+GPIO38 = LORA_ANTSW
+GPIO39 = LORA_DIO1/IRQ
+GPIO40 = LORA_BUSY
+GPIO41 = LORA_NSS/CS
+GPIO42 = LORA_RST</code></pre>
+<h3 id="wizualizacja-pinout---waveshare-lcd-2.8">Wizualizacja Pinout -
+Waveshare LCD 2.8”</h3>
+<pre><code>Waveshare Pico-ResTouch-LCD-2.8&quot; (widok od tyłu)
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│   ┌─────────────┐                                               │
+│   │  SD Card    │  ◄── NIE UŻYWAMY                              │
+│   │   Slot      │                                               │
+│   └─────────────┘                                               │
+│                                                                 │
+│   40-pin Header (numeracja jak Raspberry Pi Pico)               │
+│                                                                 │
+│   Pin 1  ●────── VBUS (5V)         Pin 2  ●────── VSYS ◄── VCC  │
+│   Pin 3  ●────── GND ◄── GND       Pin 4  ●────── 3V3_EN        │
+│   Pin 5  ●────── GP2               Pin 6  ●────── GP3           │
+│   Pin 7  ●────── GP4               Pin 8  ●────── GP5 (SDIO)    │
+│   Pin 9  ●────── GND               Pin 10 ●────── GP6           │
+│   Pin 11 ●────── GP7               Pin 12 ●────── GP8 ◄── DC    │
+│   Pin 13 ●────── GND               Pin 14 ●────── GP9 ◄── CS    │
+│   Pin 15 ●────── GP10 ◄── CLK      Pin 16 ●────── GP11 ◄── MOSI │
+│   Pin 17 ●────── GP12 ◄── MISO     Pin 18 ●────── GND           │
+│   Pin 19 ●────── GP13 ◄── BL       Pin 20 ●────── GP14          │
+│   Pin 21 ●────── GP15 ◄── RST      Pin 22 ●────── GP16 ◄── TP_CS│
+│   Pin 23 ●────── GND               Pin 24 ●────── GP17 (TP_IRQ) │
+│   ...                                                           │
+│   Pin 36 ●────── 3V3 OUT           Pin 38 ●────── GND           │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+
+UŻYWANE PINY (10 połączeń):
+Pin 2  (VSYS)  = VCC      → XIAO 3V3
+Pin 3  (GND)   = GND      → XIAO GND
+Pin 12 (GP8)   = LCD_DC   → XIAO D1
+Pin 14 (GP9)   = LCD_CS   → XIAO D0
+Pin 15 (GP10)  = LCD_CLK  → XIAO D4
+Pin 16 (GP11)  = MOSI     → XIAO D5
+Pin 17 (GP12)  = MISO     → XIAO D7
+Pin 19 (GP13)  = LCD_BL   → XIAO D3
+Pin 21 (GP15)  = LCD_RST  → XIAO D2
+Pin 22 (GP16)  = TP_CS    → XIAO D6</code></pre>
+<h3 id="schemat-blokowy-połączeń">Schemat Blokowy Połączeń</h3>
+<pre><code>┌─────────────────────┐                    ┌─────────────────────┐
+│  XIAO ESP32-S3      │                    │  Waveshare LCD 2.8&quot; │
+│  + Wio-SX1262 (B2B) │                    │  ST7789V + XPT2046  │
+│                     │                    │                     │
+│              3V3 ───┼────── czerwony ────┼─── VCC (VSYS)       │
+│              GND ───┼────── czarny ──────┼─── GND              │
+│                     │                    │                     │
+│   D0 (GPIO1)    ────┼────── pomarańcz ───┼─── LCD_CS (GP9)     │
+│   D1 (GPIO2)    ────┼────── żółty ───────┼─── LCD_DC (GP8)     │
+│   D2 (GPIO3)    ────┼────── szary ───────┼─── LCD_RST (GP15)   │
+│   D3 (GPIO4)    ────┼────── fioletowy ───┼─── LCD_BL (GP13)    │
+│   D4 (GPIO5)    ────┼────── niebieski ───┼─── LCD_CLK (GP10)   │
+│   D5 (GPIO6)    ────┼────── zielony ─────┼─── MOSI (GP11)      │
+│   D6 (GPIO43)   ────┼────── brązowy ─────┼─── TP_CS (GP16)     │
+│   D7 (GPIO44)   ────┼────── biały ───────┼─── MISO (GP12)      │
+│                     │                    │                     │
+│  ┌───────────────┐  │                    │  ┌───────────────┐  │
+│  │ Wio-SX1262    │  │                    │  │   SD Card     │  │
+│  │ (B2B connector)│  │                    │  │ (nie używana) │  │
+│  │               │  │                    │  │               │  │
+│  │ GPIO41 = NSS  │  │                    │  └───────────────┘  │
+│  │ GPIO7  = SCK  │  │                    │                     │
+│  │ GPIO9  = MOSI │  │                    │                     │
+│  │ GPIO8  = MISO │  │                    │                     │
+│  │ GPIO42 = RST  │  │                    │                     │
+│  │ GPIO40 = BUSY │  │                    │                     │
+│  │ GPIO39 = DIO1 │  │                    │                     │
+│  └───────────────┘  │                    │                     │
+└─────────────────────┘                    └─────────────────────┘</code></pre>
+<hr />
+<h2 id="zajętość-pinów-xiao-esp32-s3">Zajętość Pinów XIAO ESP32-S3</h2>
+<table>
+<thead>
+<tr>
+<th>Pin</th>
+<th>GPIO</th>
+<th>Funkcja</th>
+<th>Moduł</th>
+<th>Uwagi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D0</td>
+<td>GPIO1</td>
+<td>LCD_CS</td>
+<td>LCD</td>
+<td>LOW active</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>GPIO2</td>
+<td>LCD_DC</td>
+<td>LCD</td>
+<td>HIGH=data, LOW=cmd</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>GPIO3</td>
+<td>LCD_RST</td>
+<td>LCD</td>
+<td>LOW active</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>GPIO4</td>
+<td>LCD_BL</td>
+<td>LCD</td>
+<td>PWM 0-255</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>GPIO5</td>
+<td>SPI_CLK</td>
+<td>LCD+Touch</td>
+<td>Software SPI</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>GPIO6</td>
+<td>SPI_MOSI</td>
+<td>LCD+Touch</td>
+<td>Software SPI</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>GPIO43</td>
+<td>TP_CS</td>
+<td>Touch</td>
+<td>LOW active</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>GPIO44</td>
+<td>SPI_MISO</td>
+<td>Touch</td>
+<td>Dane z dotyku</td>
+</tr>
+<tr>
+<td>(B2B)</td>
+<td>GPIO7</td>
+<td>LORA_SCK</td>
+<td>SX1262</td>
+<td>Hardware SPI</td>
+</tr>
+<tr>
+<td>(B2B)</td>
+<td>GPIO8</td>
+<td>LORA_MISO</td>
+<td>SX1262</td>
+<td>Hardware SPI</td>
+</tr>
+<tr>
+<td>(B2B)</td>
+<td>GPIO9</td>
+<td>LORA_MOSI</td>
+<td>SX1262</td>
+<td>Hardware SPI</td>
+</tr>
+<tr>
+<td>(B2B)</td>
+<td>GPIO38</td>
+<td>LORA_ANTSW</td>
+<td>SX1262</td>
+<td>Przełącznik anteny</td>
+</tr>
+<tr>
+<td>(B2B)</td>
+<td>GPIO39</td>
+<td>LORA_DIO1</td>
+<td>SX1262</td>
+<td>Przerwanie</td>
+</tr>
+<tr>
+<td>(B2B)</td>
+<td>GPIO40</td>
+<td>LORA_BUSY</td>
+<td>SX1262</td>
+<td>Status</td>
+</tr>
+<tr>
+<td>(B2B)</td>
+<td>GPIO41</td>
+<td>LORA_NSS</td>
+<td>SX1262</td>
+<td>Chip Select</td>
+</tr>
+<tr>
+<td>(B2B)</td>
+<td>GPIO42</td>
+<td>LORA_RST</td>
+<td>SX1262</td>
+<td>Reset</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Wolne piny:</strong> Brak (wszystkie wykorzystane)</p>
+<hr />
+<h2 id="parametry-lora-identyczne-z-nadajnikiem">Parametry LoRa
+(identyczne z nadajnikiem)</h2>
+<table>
+<thead>
+<tr>
+<th>Parametr</th>
+<th>Wartość</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Częstotliwość</td>
+<td>868.0 MHz</td>
+</tr>
+<tr>
+<td>Szerokość pasma (BW)</td>
+<td>125.0 kHz</td>
+</tr>
+<tr>
+<td>Spreading Factor (SF)</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Coding Rate (CR)</td>
+<td>5 (4/5)</td>
+</tr>
+<tr>
+<td>Sync Word</td>
+<td>0x34</td>
+</tr>
+<tr>
+<td>Moc nadawania</td>
+<td>14 dBm</td>
+</tr>
+<tr>
+<td>Preambuła</td>
+<td>8 symboli</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="protokół-pakietu-lora-z-nadajnika">Protokół Pakietu LoRa (z
+nadajnika)</h2>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> <span class="ex">__attribute__((packed))</span> SensorPacket <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint8_t</span> mac<span class="op">[</span><span class="dv">6</span><span class="op">];</span>        <span class="co">// 0-5:   MAC WiFi ESP32 (unikalny ID)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint8_t</span> msgType<span class="op">;</span>       <span class="co">// 6:     Typ wiadomości (0x01 = DATA)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint8_t</span> seqNum<span class="op">;</span>        <span class="co">// 7:     Numer sekwencji (0-255)</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int16_t</span> temperature<span class="op">;</span>   <span class="co">// 8-9:   Temperatura × 100</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint16_t</span> humidity<span class="op">;</span>     <span class="co">// 10-11: Wilgotność × 100</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint16_t</span> pressure<span class="op">;</span>     <span class="co">// 12-13: Ciśnienie hPa</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint16_t</span> pm1_0<span class="op">;</span>        <span class="co">// 14-15: PM1.0 µg/m³</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint16_t</span> pm2_5<span class="op">;</span>        <span class="co">// 16-17: PM2.5 µg/m³</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint16_t</span> pm10<span class="op">;</span>         <span class="co">// 18-19: PM10 µg/m³</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint8_t</span> status<span class="op">;</span>        <span class="co">// 20:    Flagi statusu</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint16_t</span> crc<span class="op">;</span>          <span class="co">// 21-22: CRC-16/CCITT</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">// Rozmiar: 23 bajty</span></span></code></pre></div>
+<hr />
+<h2 id="architektura-multi-device">Architektura Multi-Device</h2>
+<h3 id="struktura-danych-urządzenia">Struktura Danych Urządzenia</h3>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define MAX_DEVICES </span><span class="dv">4</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#define DEVICE_NAME_LEN </span><span class="dv">16</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#define HISTORY_SIZE </span><span class="dv">24</span><span class="pp">       </span><span class="co">// 24 punkty = 24h przy 1h/punkt</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> DeviceData <span class="op">{</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Identyfikacja</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint8_t</span> mac<span class="op">[</span><span class="dv">6</span><span class="op">];</span>             <span class="co">// MAC jako unikalny ID</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">char</span> name<span class="op">[</span>DEVICE_NAME_LEN<span class="op">];</span> <span class="co">// Nazwa edytowalna (np. &quot;Salon&quot;)</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">bool</span> active<span class="op">;</span>                <span class="co">// Czy urządzenie aktywne</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Ostatnie dane pomiarowe</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> temperature<span class="op">;</span>          <span class="co">// °C</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> humidity<span class="op">;</span>             <span class="co">// %</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint16_t</span> pressure<span class="op">;</span>          <span class="co">// hPa</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint16_t</span> pm1_0<span class="op">;</span>             <span class="co">// µg/m³</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint16_t</span> pm2_5<span class="op">;</span>             <span class="co">// µg/m³</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint16_t</span> pm10<span class="op">;</span>              <span class="co">// µg/m³</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint8_t</span> status<span class="op">;</span>             <span class="co">// Flagi błędów</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Metadane odbioru</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> rssi<span class="op">;</span>                 <span class="co">// dBm</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="dt">float</span> snr<span class="op">;</span>                  <span class="co">// dB</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint32_t</span> lastSeenMs<span class="op">;</span>        <span class="co">// millis() ostatniego pakietu</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint8_t</span> lastSeqNum<span class="op">;</span>         <span class="co">// Wykrywanie duplikatów</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">// Historia PM2.5 (24h, 1 punkt/godzinę)</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint16_t</span> pm25History<span class="op">[</span>HISTORY_SIZE<span class="op">];</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint8_t</span> historyIndex<span class="op">;</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  <span class="dt">uint32_t</span> lastHistoryUpdateMs<span class="op">;</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>DeviceData devices<span class="op">[</span>MAX_DEVICES<span class="op">];</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="dt">uint8_t</span> activeDeviceCount <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<h3 id="timeout-urządzenia">Timeout Urządzenia</h3>
+<table>
+<thead>
+<tr>
+<th>Parametr</th>
+<th>Wartość</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DEVICE_TIMEOUT_MS</td>
+<td>30 minut</td>
+<td>2 cykle × 15 min</td>
+</tr>
+<tr>
+<td>HISTORY_INTERVAL_MS</td>
+<td>1 godzina</td>
+<td>Interwał aktualizacji historii</td>
+</tr>
+</tbody>
+</table>
+<p>Urządzenie jest oznaczane jako <strong>offline</strong> jeśli nie
+otrzymaliśmy danych przez 30 minut (2 cykle nadajnika).</p>
+<hr />
+<h2 id="design-interfejsu-użytkownika-ui">Design Interfejsu Użytkownika
+(UI)</h2>
+<h3 id="paleta-kolorów">Paleta Kolorów</h3>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Kolory w formacie RGB565 (16-bit)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#define COLOR_BG_MAIN       </span><span class="bn">0x1082</span><span class="pp">  </span><span class="co">// #1a1a2e - ciemny granat</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#define COLOR_BG_TILE       </span><span class="bn">0x1124</span><span class="pp">  </span><span class="co">// #16213e - granatowy</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#define COLOR_BG_TILE_HOVER </span><span class="bn">0x2148</span><span class="pp">  </span><span class="co">// #1f4068 - jaśniejszy granat</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#define COLOR_BG_HEADER     </span><span class="bn">0x0861</span><span class="pp">  </span><span class="co">// #0d1b2a - bardzo ciemny</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="pp">#define COLOR_ACCENT        </span><span class="bn">0x04B4</span><span class="pp">  </span><span class="co">// #0f94d2 - niebieski</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="pp">#define COLOR_ACCENT2       </span><span class="bn">0x06DF</span><span class="pp">  </span><span class="co">// #00d9ff - cyjan</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="pp">#define COLOR_TEXT          </span><span class="bn">0xFFFF</span><span class="pp">  </span><span class="co">// #ffffff - biały</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="pp">#define COLOR_TEXT_SEC      </span><span class="bn">0xA514</span><span class="pp">  </span><span class="co">// #a0a0a0 - szary</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="pp">#define COLOR_TEXT_VALUE    </span><span class="bn">0x07F2</span><span class="pp">  </span><span class="co">// #00ff88 - zielony neon</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="pp">#define COLOR_STATUS_OK     </span><span class="bn">0x07F2</span><span class="pp">  </span><span class="co">// #00ff88 - zielony</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="pp">#define COLOR_STATUS_WARN   </span><span class="bn">0xFD40</span><span class="pp">  </span><span class="co">// #ffaa00 - pomarańczowy (PM 35-75)</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="pp">#define COLOR_STATUS_DANGER </span><span class="bn">0xF9A6</span><span class="pp">  </span><span class="co">// #ff3366 - czerwony (PM &gt;75)</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="pp">#define COLOR_STATUS_OFF    </span><span class="bn">0x6B4D</span><span class="pp">  </span><span class="co">// #666666 - ciemnoszary</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="pp">#define COLOR_BUTTON        </span><span class="bn">0x2148</span><span class="pp">  </span><span class="co">// #1f4068 - przycisk normalny</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="pp">#define COLOR_BUTTON_PRESS  </span><span class="bn">0x04B4</span><span class="pp">  </span><span class="co">// #0f94d2 - przycisk naciśnięty</span></span></code></pre></div>
+<h3 id="progi-alarmów-pm2.5">Progi Alarmów PM2.5</h3>
+<table>
+<thead>
+<tr>
+<th>PM2.5 [µg/m³]</th>
+<th>Status</th>
+<th>Kolor kafelka</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 - 35</td>
+<td>OK</td>
+<td>Zielony pasek</td>
+</tr>
+<tr>
+<td>35 - 75</td>
+<td>WARNING</td>
+<td>Pomarańczowy pasek</td>
+</tr>
+<tr>
+<td>&gt; 75</td>
+<td>DANGER</td>
+<td>Czerwony pasek + animacja</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ekrany-ui">Ekrany UI</h3>
+<h4 id="home-screen-320240-landscape">1. Home Screen (320×240,
+Landscape)</h4>
+<pre><code>┌────────────────────────────────────────────────────────────────┐
+│  ╔══════════════════════════════════════════════════════════╗  │
+│  ║  🌡️ AIR QUALITY          📶 WiFi    ⚙️   12:45  ║  │
+│  ╚══════════════════════════════════════════════════════════╝  │
+│                                                                │
+│  ┌──────────────────────┐  ┌──────────────────────┐           │
+│  │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│  │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│      ▲    │
+│  │ 🏠 Salon              │  │ 🛏️ Sypialnia         │           │
+│  │                       │  │                       │           │
+│  │  26.5°C      45%     │  │  24.2°C      52%     │           │
+│  │                       │  │                       │           │
+│  │  PM2.5: 12 µg/m³     │  │  PM2.5: 8 µg/m³      │           │
+│  │  ████░░░░░░░░  OK    │  │  ██░░░░░░░░░░  OK    │           │
+│  └──────────────────────┘  └──────────────────────┘           │
+│                                                                │
+│  ┌──────────────────────┐  ┌──────────────────────┐           │
+│  │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│  │                       │      ▼    │
+│  │ 🍳 Kuchnia            │  │                       │           │
+│  │                       │  │   Oczekiwanie na      │           │
+│  │  28.1°C      38%     │  │   urządzenie...       │           │
+│  │                       │  │                       │           │
+│  │  PM2.5: 45 µg/m³     │  │                       │           │
+│  │  ██████████░░  ⚠️    │  │                       │           │
+│  └──────────────────────┘  └──────────────────────┘           │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+
+Elementy:
+- Header: tytuł, status WiFi, ikona ustawień, zegar
+- 4 kafelki (2×2 grid) z danymi nadajników
+- Kafelek: pasek statusu (kolor), nazwa, temp, wilg, PM2.5, mini-bar
+- Strzałki przewijania (jeśli &gt;4 urządzeń w przyszłości)
+- Dotknięcie kafelka → Detail Screen
+- Dotknięcie ⚙️ → WiFi Config</code></pre>
+<h4 id="detail-screen">2. Detail Screen</h4>
+<pre><code>┌────────────────────────────────────────────────────────────────┐
+│  ┌────┐                                          ┌──────────┐  │
+│  │ ◄  │  🏠 Salon                                │ ✏️ Edit  │  │
+│  └────┘                                          └──────────┘  │
+│  ══════════════════════════════════════════════════════════    │
+│                                                                │
+│   🌡️ Temperatura         26.52 °C                             │
+│   💧 Wilgotność          45.2 %                               │
+│   🌀 Ciśnienie           1013 hPa                             │
+│                                                                │
+│  ──────────────────────────────────────────────────────────    │
+│                                                                │
+│   PM1.0                  8 µg/m³                              │
+│   PM2.5                  12 µg/m³   ████░░░░░░░░  OK          │
+│   PM10                   18 µg/m³                              │
+│                                                                │
+│  ──────────────────────────────────────────────────────────    │
+│                                                                │
+│   📶 RSSI: -65 dBm       SNR: 8.5 dB                          │
+│   🕐 Ostatnio: 12s temu                                       │
+│                                                                │
+│  ──────────────────────────────────────────────────────────    │
+│   Historia PM2.5 (24h):                                        │
+│                                                                │
+│   50│          ▄▄                                              │
+│   40│    ▄▄   ████  ▄▄                                        │
+│   30│ ▄▄████▄▄████████▄▄    ▄▄                                │
+│   20│████████████████████▄▄████▄▄▄▄                           │
+│   10│                                                          │
+│    0└──────────────────────────────                            │
+│      -24h            -12h            teraz                     │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+
+Elementy:
+- Przycisk Back (◄) → Home Screen
+- Nazwa urządzenia + przycisk Edit
+- Pełne dane: temp, wilg, ciśnienie
+- PM1.0, PM2.5, PM10 z paskiem statusu
+- RSSI, SNR, czas od ostatniego odbioru
+- Wykres słupkowy historii PM2.5 (24h)</code></pre>
+<h4 id="edit-name-screen-klawiatura">3. Edit Name Screen
+(Klawiatura)</h4>
+<pre><code>┌────────────────────────────────────────────────────────────────┐
+│                                                                │
+│   Nazwa urządzenia:                                            │
+│   ┌──────────────────────────────────────────────────────┐     │
+│   │  Salon█                                              │     │
+│   └──────────────────────────────────────────────────────┘     │
+│                                                                │
+│   ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐                   │
+│   │ Q │ W │ E │ R │ T │ Y │ U │ I │ O │ P │                   │
+│   └───┴───┴───┴───┴───┴───┴───┴───┴───┴───┘                   │
+│    ┌───┬───┬───┬───┬───┬───┬───┬───┬───┐                      │
+│    │ A │ S │ D │ F │ G │ H │ J │ K │ L │                      │
+│    └───┴───┴───┴───┴───┴───┴───┴───┴───┘                      │
+│     ┌───┬───┬───┬───┬───┬───┬───┬─────┐                       │
+│     │ Z │ X │ C │ V │ B │ N │ M │  ⌫  │                       │
+│     └───┴───┴───┴───┴───┴───┴───┴─────┘                       │
+│                                                                │
+│   ┌───────┐  ┌─────────────────────┐  ┌────────┬────────┐     │
+│   │  123  │  │       SPACJA        │  │ Anuluj │   OK   │     │
+│   └───────┘  └─────────────────────┘  └────────┴────────┘     │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+
+Elementy:
+- Pole tekstowe z aktualną nazwą
+- Klawiatura QWERTY
+- Przycisk 123 → cyfry i znaki specjalne
+- Backspace (⌫)
+- Spacja
+- Anuluj / OK</code></pre>
+<h4 id="wifi-config-screen">4. WiFi Config Screen</h4>
+<pre><code>┌────────────────────────────────────────────────────────────────┐
+│  ┌────┐                                                        │
+│  │ ◄  │  📶 Konfiguracja WiFi                                 │
+│  └────┘                                                        │
+│                                                                │
+│   Dostępne sieci:                          ┌──────────┐        │
+│   ┌────────────────────────────────────┐   │ 🔄 Skanuj│        │
+│   │  📶▓▓▓▓ HomeNetwork           ✓   │   └──────────┘        │
+│   │  📶▓▓▓░ NeighborWiFi              │                       │
+│   │  📶▓▓░░ Guest_5G                  │                       │
+│   │  📶▓░░░ IoT_Network               │                       │
+│   └────────────────────────────────────┘                       │
+│                                                                │
+│   SSID:     HomeNetwork                                        │
+│   Hasło:    ┌────────────────────────────┐                     │
+│             │ ●●●●●●●●●●●●               │  [👁️]               │
+│             └────────────────────────────┘                     │
+│                                                                │
+│   Status: 🟢 Połączono                                         │
+│   IP: 192.168.1.105                                            │
+│                                                                │
+│   ┌─────────────────┐        ┌─────────────────┐               │
+│   │     Anuluj      │        │     Połącz      │               │
+│   └─────────────────┘        └─────────────────┘               │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+
+Elementy:
+- Lista dostępnych sieci WiFi (scrollowalna)
+- Siła sygnału (ikona)
+- Znacznik aktualnie połączonej sieci (✓)
+- Pole SSID i hasło
+- Przycisk pokaż/ukryj hasło
+- Status połączenia + IP
+- Skanuj / Połącz / Anuluj</code></pre>
+<h3 id="animacje">Animacje</h3>
+<table>
+<thead>
+<tr>
+<th>Animacja</th>
+<th>Opis</th>
+<th>Czas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fade przejścia</td>
+<td>Płynne przejście między ekranami</td>
+<td>200ms</td>
+</tr>
+<tr>
+<td>Startup loader</td>
+<td>Pasek postępu przy uruchamianiu</td>
+<td>2-3s</td>
+</tr>
+<tr>
+<td>Alarm pulse</td>
+<td>Pulsowanie kafelka przy PM&gt;75</td>
+<td>500ms okres</td>
+</tr>
+<tr>
+<td>Touch feedback</td>
+<td>Podświetlenie przycisku przy dotknięciu</td>
+<td>100ms</td>
+</tr>
+<tr>
+<td>WiFi scan</td>
+<td>Obracająca się ikona podczas skanowania</td>
+<td>ciągłe</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ikony-system-icons-bitmapy">Ikony (System Icons → Bitmapy)</h3>
+<p>Ikony zostaną przekonwertowane z systemowych ikon macOS do bitmap
+16×16 lub 24×24 px:</p>
+<table>
+<thead>
+<tr>
+<th>Ikona</th>
+<th>Użycie</th>
+<th>Rozmiar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🏠 house</td>
+<td>Nazwa domyślna</td>
+<td>16×16</td>
+</tr>
+<tr>
+<td>🌡️ thermometer</td>
+<td>Temperatura</td>
+<td>16×16</td>
+</tr>
+<tr>
+<td>💧 droplet</td>
+<td>Wilgotność</td>
+<td>16×16</td>
+</tr>
+<tr>
+<td>🌀 wind</td>
+<td>Ciśnienie</td>
+<td>16×16</td>
+</tr>
+<tr>
+<td>📶 wifi</td>
+<td>Status WiFi</td>
+<td>16×16</td>
+</tr>
+<tr>
+<td>⚙️ gear</td>
+<td>Ustawienia</td>
+<td>16×16</td>
+</tr>
+<tr>
+<td>◄ back</td>
+<td>Powrót</td>
+<td>24×24</td>
+</tr>
+<tr>
+<td>✏️ edit</td>
+<td>Edycja</td>
+<td>16×16</td>
+</tr>
+<tr>
+<td>⌫ backspace</td>
+<td>Kasowanie</td>
+<td>24×24</td>
+</tr>
+<tr>
+<td>🔄 refresh</td>
+<td>Odśwież</td>
+<td>16×16</td>
+</tr>
+<tr>
+<td>⚠️ warning</td>
+<td>Ostrzeżenie</td>
+<td>16×16</td>
+</tr>
+<tr>
+<td>🛏️ bed</td>
+<td>Sypialnia</td>
+<td>16×16</td>
+</tr>
+<tr>
+<td>🍳 cooking</td>
+<td>Kuchnia</td>
+<td>16×16</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="protokół-wifi-udp">Protokół WiFi UDP</h2>
+<h3 id="konfiguracja">Konfiguracja</h3>
+<table>
+<thead>
+<tr>
+<th>Parametr</th>
+<th>Wartość</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Port UDP</td>
+<td>5000</td>
+</tr>
+<tr>
+<td>Interwał</td>
+<td>10 sekund</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>JSON</td>
+</tr>
+<tr>
+<td>Broadcast</td>
+<td>255.255.255.255 lub subnet broadcast</td>
+</tr>
+</tbody>
+</table>
+<h3 id="format-json">Format JSON</h3>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode json"><code class="sourceCode json"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;type&quot;</span><span class="fu">:</span> <span class="st">&quot;air_quality_data&quot;</span><span class="fu">,</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;receiver_mac&quot;</span><span class="fu">:</span> <span class="st">&quot;AA:BB:CC:DD:EE:FF&quot;</span><span class="fu">,</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;timestamp&quot;</span><span class="fu">:</span> <span class="dv">1735650000</span><span class="fu">,</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;uptime_sec&quot;</span><span class="fu">:</span> <span class="dv">3600</span><span class="fu">,</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;wifi_rssi&quot;</span><span class="fu">:</span> <span class="dv">-55</span><span class="fu">,</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">&quot;devices&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;mac&quot;</span><span class="fu">:</span> <span class="st">&quot;11:22:33:44:55:01&quot;</span><span class="fu">,</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Salon&quot;</span><span class="fu">,</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;active&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;temperature&quot;</span><span class="fu">:</span> <span class="fl">26.52</span><span class="fu">,</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;humidity&quot;</span><span class="fu">:</span> <span class="fl">45.2</span><span class="fu">,</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;pressure&quot;</span><span class="fu">:</span> <span class="dv">1013</span><span class="fu">,</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;pm1_0&quot;</span><span class="fu">:</span> <span class="dv">8</span><span class="fu">,</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;pm2_5&quot;</span><span class="fu">:</span> <span class="dv">12</span><span class="fu">,</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;pm10&quot;</span><span class="fu">:</span> <span class="dv">18</span><span class="fu">,</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;lora_rssi&quot;</span><span class="fu">:</span> <span class="dv">-65</span><span class="fu">,</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;lora_snr&quot;</span><span class="fu">:</span> <span class="fl">8.5</span><span class="fu">,</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;last_seen_sec&quot;</span><span class="fu">:</span> <span class="dv">12</span><span class="fu">,</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="dv">0</span></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">{</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;mac&quot;</span><span class="fu">:</span> <span class="st">&quot;11:22:33:44:55:02&quot;</span><span class="fu">,</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;name&quot;</span><span class="fu">:</span> <span class="st">&quot;Sypialnia&quot;</span><span class="fu">,</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;active&quot;</span><span class="fu">:</span> <span class="kw">true</span><span class="fu">,</span></span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;temperature&quot;</span><span class="fu">:</span> <span class="fl">24.2</span><span class="fu">,</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;humidity&quot;</span><span class="fu">:</span> <span class="fl">52.0</span><span class="fu">,</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;pressure&quot;</span><span class="fu">:</span> <span class="dv">1013</span><span class="fu">,</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;pm1_0&quot;</span><span class="fu">:</span> <span class="dv">5</span><span class="fu">,</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;pm2_5&quot;</span><span class="fu">:</span> <span class="dv">8</span><span class="fu">,</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;pm10&quot;</span><span class="fu">:</span> <span class="dv">12</span><span class="fu">,</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;lora_rssi&quot;</span><span class="fu">:</span> <span class="dv">-72</span><span class="fu">,</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;lora_snr&quot;</span><span class="fu">:</span> <span class="fl">6.2</span><span class="fu">,</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;last_seen_sec&quot;</span><span class="fu">:</span> <span class="dv">45</span><span class="fu">,</span></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>      <span class="dt">&quot;status&quot;</span><span class="fu">:</span> <span class="dv">0</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">}</span></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>  <span class="ot">]</span></span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<h3 id="odbieranie-na-raspberry-pi-zero-python">Odbieranie na Raspberry
+Pi Zero (Python)</h3>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> socket</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>UDP_IP <span class="op">=</span> <span class="st">&quot;0.0.0.0&quot;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>UDP_PORT <span class="op">=</span> <span class="dv">5000</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>sock <span class="op">=</span> socket.socket(socket.AF_INET, socket.SOCK_DGRAM)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>sock.bind((UDP_IP, UDP_PORT))</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f&quot;Listening on UDP port </span><span class="sc">{</span>UDP_PORT<span class="sc">}</span><span class="ss">...&quot;</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    data, addr <span class="op">=</span> sock.recvfrom(<span class="dv">1024</span>)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        payload <span class="op">=</span> json.loads(data.decode(<span class="st">&#39;utf-8&#39;</span>))</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Received from </span><span class="sc">{</span>addr<span class="sc">}</span><span class="ss">:&quot;</span>)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(json.dumps(payload, indent<span class="op">=</span><span class="dv">2</span>))</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span> json.JSONDecodeError:</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f&quot;Invalid JSON from </span><span class="sc">{</span>addr<span class="sc">}</span><span class="ss">&quot;</span>)</span></code></pre></div>
+<h3 id="odbieranie-na-ios-swift---przyszłość">Odbieranie na iOS (Swift)
+- Przyszłość</h3>
+<p>UDP można odbierać na iOS używając <code>Network.framework</code>
+(iOS 12+) lub <code>CocoaAsyncSocket</code>. Wymaga bycia w tej samej
+sieci WiFi.</p>
+<hr />
+<h2 id="wymagane-biblioteki-arduino">Wymagane Biblioteki Arduino</h2>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// LoRa</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;SPI.h&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;RadioLib.h&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">// LCD TFT</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;TFT_eSPI.h&gt;</span><span class="pp">           </span><span class="co">// Konfiguracja w User_Setup.h</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Touch (wbudowane w TFT_eSPI lub osobno)</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">// XPT2046 jest wspierany przez TFT_eSPI</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co">// WiFi</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;WiFi.h&gt;</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;WiFiUdp.h&gt;</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co">// JSON</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;ArduinoJson.h&gt;</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="co">// NTP (czas)</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;time.h&gt;</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="co">// Storage (nazwy, WiFi credentials)</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Preferences.h&gt;</span></span></code></pre></div>
+<h3 id="konfiguracja-tft_espi">Konfiguracja TFT_eSPI</h3>
+<p>Plik <code>User_Setup.h</code> w bibliotece TFT_eSPI wymaga
+konfiguracji:</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">// User_Setup.h dla XIAO ESP32-S3 + Waveshare 2.8&quot;</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#define ST7789_DRIVER</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#define TFT_WIDTH  </span><span class="dv">240</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#define TFT_HEIGHT </span><span class="dv">320</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Piny XIAO ESP32-S3</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="pp">#define TFT_CS    </span><span class="dv">1</span><span class="pp">   </span><span class="co">// GPIO1 (D0)</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="pp">#define TFT_DC    </span><span class="dv">2</span><span class="pp">   </span><span class="co">// GPIO2 (D1)</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="pp">#define TFT_RST   </span><span class="dv">3</span><span class="pp">   </span><span class="co">// GPIO3 (D2)</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="pp">#define TFT_MOSI  </span><span class="dv">6</span><span class="pp">   </span><span class="co">// GPIO6 (D5)</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="pp">#define TFT_SCLK  </span><span class="dv">5</span><span class="pp">   </span><span class="co">// GPIO5 (D4)</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="pp">#define TFT_MISO  </span><span class="dv">44</span><span class="pp">  </span><span class="co">// GPIO44 (D7) - dla touch</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">// Touch</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="pp">#define TOUCH_CS  </span><span class="dv">43</span><span class="pp">  </span><span class="co">// GPIO43 (D6)</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co">// Backlight</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="pp">#define TFT_BL    </span><span class="dv">4</span><span class="pp">   </span><span class="co">// GPIO4 (D3)</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="co">// Opcje</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="pp">#define LOAD_GLCD</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="pp">#define LOAD_FONT2</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="pp">#define LOAD_FONT4</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="pp">#define LOAD_FONT6</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a><span class="pp">#define LOAD_FONT7</span></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a><span class="pp">#define LOAD_FONT8</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a><span class="pp">#define LOAD_GFXFF</span></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a><span class="pp">#define SMOOTH_FONT</span></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a><span class="pp">#define SPI_FREQUENCY       </span><span class="dv">40000000</span></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a><span class="pp">#define SPI_READ_FREQUENCY  </span><span class="dv">20000000</span></span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a><span class="pp">#define SPI_TOUCH_FREQUENCY  </span><span class="dv">2500000</span></span></code></pre></div>
+<hr />
+<h2 id="struktura-kodu">Struktura Kodu</h2>
+<p>Cały kod w jednym pliku <code>air_condition_receiver.ino</code> z
+sekcjami:</p>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">/*</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"> * Air Condition Receiver v2.0</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"> * ===========================</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"> * Odbiornik LoRa z ekranem dotykowym LCD 2.8&quot;</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"> * </span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"> * Sekcje kodu:</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"> * 1. INCLUDES &amp; DEFINES</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="co"> * 2. PIN DEFINITIONS</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"> * 3. COLOR PALETTE</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"> * 4. DATA STRUCTURES</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="co"> * 5. GLOBAL VARIABLES</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co"> * 6. ICON BITMAPS</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co"> * 7. UTILITY FUNCTIONS</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co"> * 8. LORA FUNCTIONS</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co"> * 9. DEVICE MANAGEMENT</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="co"> * 10. DISPLAY FUNCTIONS</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="co"> * 11. UI - HOME SCREEN</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a><span class="co"> * 12. UI - DETAIL SCREEN</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="co"> * 13. UI - KEYBOARD</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="co"> * 14. UI - WIFI CONFIG</span></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="co"> * 15. TOUCH HANDLING</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a><span class="co"> * 16. WIFI &amp; UDP</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a><span class="co"> * 17. NTP TIME</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="co"> * 18. STORAGE (NVS)</span></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="co"> * 19. SETUP</span></span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="co"> * 20. LOOP</span></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a><span class="co"> */</span></span></code></pre></div>
+<hr />
+<h2 id="fazy-implementacji">Fazy Implementacji</h2>
+<h3 id="faza-1-hardware-lcd-basic">Faza 1: Hardware + LCD Basic ✅</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Podłączenie LCD do XIAO (10
+przewodów)</label></li>
+<li><label><input type="checkbox" />Konfiguracja TFT_eSPI
+(User_Setup.h)</label></li>
+<li><label><input type="checkbox" />Test wyświetlania (prostokąty,
+tekst, kolory)</label></li>
+<li><label><input type="checkbox" />Test dotyku XPT2046</label></li>
+<li><label><input type="checkbox" />Kalibracja dotyku</label></li>
+</ul>
+<h3 id="faza-2-integracja-lora-multi-device">Faza 2: Integracja LoRa +
+Multi-Device</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Połączenie z istniejącym kodem
+odbiornika</label></li>
+<li><label><input type="checkbox" />Struktura DeviceData</label></li>
+<li><label><input type="checkbox" />Dodawanie urządzeń po
+MAC</label></li>
+<li><label><input type="checkbox" />Timeout nieaktywnych (30
+min)</label></li>
+<li><label><input type="checkbox" />Historia PM2.5 (24
+punkty)</label></li>
+</ul>
+<h3 id="faza-3-ui-home-screen">Faza 3: UI Home Screen</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Tło i header</label></li>
+<li><label><input type="checkbox" />Kafelki 2×2</label></li>
+<li><label><input type="checkbox" />Wyświetlanie danych z
+devices[]</label></li>
+<li><label><input type="checkbox" />Pasek statusu PM (kolorowy
+gradient)</label></li>
+<li><label><input type="checkbox" />Dotykowa nawigacja</label></li>
+</ul>
+<h3 id="faza-4-ui-detail-screen">Faza 4: UI Detail Screen</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Layout szczegółów</label></li>
+<li><label><input type="checkbox" />Wykres historii PM2.5</label></li>
+<li><label><input type="checkbox" />Przycisk Back</label></li>
+<li><label><input type="checkbox" />Metadane (RSSI, SNR,
+czas)</label></li>
+</ul>
+<h3 id="faza-5-klawiatura-edycja-nazw">Faza 5: Klawiatura + Edycja
+Nazw</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Klawiatura QWERTY</label></li>
+<li><label><input type="checkbox" />Obsługa dotyku klawiszy</label></li>
+<li><label><input type="checkbox" />Pole tekstowe</label></li>
+<li><label><input type="checkbox" />Zapis nazwy do NVS</label></li>
+</ul>
+<h3 id="faza-6-wifi-udp">Faza 6: WiFi + UDP</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Połączenie WiFi (z NVS lub
+hardcoded)</label></li>
+<li><label><input type="checkbox" />Broadcast UDP JSON co
+10s</label></li>
+<li><label><input type="checkbox" />Status WiFi na ekranie</label></li>
+<li><label><input type="checkbox" />NTP sync (czas)</label></li>
+</ul>
+<h3 id="faza-7-wifi-config-ui">Faza 7: WiFi Config UI</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Ekran konfiguracji</label></li>
+<li><label><input type="checkbox" />Skanowanie sieci</label></li>
+<li><label><input type="checkbox" />Lista sieci
+(scrollowalna)</label></li>
+<li><label><input type="checkbox" />Zapis credentials do
+NVS</label></li>
+</ul>
+<h3 id="faza-8-animacje-i-polish">Faza 8: Animacje i Polish</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />Fade przejścia ekranów</label></li>
+<li><label><input type="checkbox" />Startup loader</label></li>
+<li><label><input type="checkbox" />Pulsowanie alarmu</label></li>
+<li><label><input type="checkbox" />Touch feedback</label></li>
+<li><label><input type="checkbox" />Konwersja ikon do
+bitmap</label></li>
+</ul>
+<hr />
+<h2 id="pliki-projektu">Pliki Projektu</h2>
+<pre><code>air_condition_receiver/
+├── PROJECT_RECEIVER.md      # Ta dokumentacja
+├── PROJECT_RECEIVER.pdf     # Export PDF
+├── air_condition_receiver.ino  # Kod (rozwijamy istniejący)
+└── icons/                   # Folder na bitmapy ikon (opcjonalnie)
+    ├── home_16.h
+    ├── thermometer_16.h
+    ├── droplet_16.h
+    └── ...</code></pre>
+<hr />
+<h2 id="historia-zmian">Historia Zmian</h2>
+<table>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 40%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr>
+<th>Data</th>
+<th>Wersja</th>
+<th>Opis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2025-12-31</td>
+<td>1.0</td>
+<td>Utworzenie dokumentacji projektu</td>
+</tr>
+<tr>
+<td>2025-12-31</td>
+<td>2.0</td>
+<td>Rozszerzenie o pełny design UI, schematy połączeń, protokół UDP</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="kontekst-dla-kolejnej-sesji">Kontekst dla Kolejnej Sesji</h2>
+<h3 id="status-projektu-2025-12-31">Status Projektu (2025-12-31)</h3>
+<table>
+<thead>
+<tr>
+<th>Faza</th>
+<th>Status</th>
+<th>Uwagi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dokumentacja</td>
+<td><strong>ZAKOŃCZONA</strong></td>
+<td>PROJECT_RECEIVER.md</td>
+</tr>
+<tr>
+<td>Hardware</td>
+<td>DO REALIZACJI</td>
+<td>Czeka na połączenie</td>
+</tr>
+<tr>
+<td>Software v1.0</td>
+<td><strong>GOTOWY</strong></td>
+<td>Odbiór LoRa + Serial</td>
+</tr>
+<tr>
+<td>Software v2.0</td>
+<td>DO REALIZACJI</td>
+<td>LCD + UI + WiFi</td>
+</tr>
+</tbody>
+</table>
+<h3 id="co-jest-gotowe">Co Jest Gotowe</h3>
+<ol type="1">
+<li><strong>Dokumentacja</strong> - PROJECT_RECEIVER.md zawiera:
+<ul>
+<li>Kompletny schemat połączeń (Pico → XIAO)</li>
+<li>Design UI (4 ekrany)</li>
+<li>Paleta kolorów</li>
+<li>Protokół UDP JSON</li>
+<li>Plan implementacji</li>
+</ul></li>
+<li><strong>Kod bazowy</strong> -
+<code>air_condition_receiver.ino</code> v1.0:
+<ul>
+<li>Inicjalizacja SX1262</li>
+<li>Odbiór pakietów LoRa</li>
+<li>Parsowanie SensorPacket</li>
+<li>Walidacja CRC</li>
+<li>Output na Serial</li>
+</ul></li>
+<li><strong>Hardware:</strong>
+<ul>
+<li>XIAO ESP32-S3 + Wio-SX1262 (B2B) - <strong>GOTOWY</strong></li>
+<li>Waveshare LCD 2.8” - <strong>KUPIONY</strong></li>
+<li>Przewody/płytka - <strong>DO PRZYGOTOWANIA</strong></li>
+</ul></li>
+</ol>
+<h3 id="schemat-połączeń---szybka-ściąga">Schemat Połączeń - Szybka
+Ściąga</h3>
+<pre><code>LCD → XIAO
+──────────────
+VCC  → 3V3
+GND  → GND
+DC   → D1
+CS   → D0
+CLK  → D4
+MOSI → D5
+MISO → D7
+BL   → D3
+RST  → D2
+TP_CS→ D6</code></pre>
+<h3 id="parametry-kluczowe">Parametry Kluczowe</h3>
+<table>
+<thead>
+<tr>
+<th>Parametr</th>
+<th>Wartość</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max urządzeń</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Timeout urządzenia</td>
+<td>30 min (2 cykle)</td>
+</tr>
+<tr>
+<td>Historia PM2.5</td>
+<td>24h (1 punkt/h)</td>
+</tr>
+<tr>
+<td>UDP broadcast</td>
+<td>co 10s</td>
+</tr>
+<tr>
+<td>UDP port</td>
+<td>5000</td>
+</tr>
+<tr>
+<td>Orientacja LCD</td>
+<td>Landscape (320×240)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kolejne-kroki">Kolejne Kroki</h3>
+<ol type="1">
+<li><strong>Podłączyć LCD</strong> do XIAO wg schematu</li>
+<li><strong>Skonfigurować TFT_eSPI</strong> (User_Setup.h)</li>
+<li><strong>Test LCD</strong> - prosty sketch z kolorami</li>
+<li><strong>Rozbudowa kodu</strong> - dodanie UI</li>
+</ol>
+<h3 id="kompilacja">Kompilacja</h3>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">arduino-cli</span> compile <span class="at">--fqbn</span> esp32:esp32:XIAO_ESP32S3 receiver</span></code></pre></div>
+<hr />
+<p><strong>Koniec dokumentacji. Powodzenia z implementacją!</strong></p>
+</body>
+</html>
